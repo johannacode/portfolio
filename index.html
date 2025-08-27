@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Johanna Angloma</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ===========================
+       Navbar
+  ============================ -->
+  <nav class="navbar">
+    <div class="nav-left">
+        <span class="initials">JA</span>
+    </div>
+
+    <div class="nav-right">
+        <!-- Liens principaux -->
+        <ul class="nav-links">
+            <li><a href="#bio">Bio</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="CV_Johanna.pdf" download target="_blank" class="cv-link">
+                <svg xmlns="http://www.w3.org/2000/svg" class="cv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                CV
+              </a>
+            </li>
+        </ul>
+
+        <!-- Bouton de langue -->
+        <a href="#english" class="lang-switch">EN</a>
+
+        <!-- Hamburger menu pour mobile -->
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </div>
+  </nav>
+
+  <!-- ===========================
+       Header
+  ============================ -->
+  <header>
+    <div class="container">
+      <h1>Johanna Angloma</h1>
+      <p class="tagline">Future Alternante en informatique | Passionnée par la cybersécurité</p>
+    </div>
+  </header>
+
+  <!-- ===========================
+       Main content
+  ============================ -->
+  <main class="container">
+    <!-- ===========================
+         Bio avec onglets
+    ============================ -->
+    <section class="bio" id="bio">
+        <div class="bio-container">
+            <!-- Photo à gauche -->
+            <img src="images/photo_portfolio.jpg" alt="Photo de Johanna" class="photo">
+
+            <!-- Contenu à droite -->
+            <div class="bio-content">
+                <!-- Onglets -->
+                <div class="bio-tabs">
+                    <button class="tab-btn active" data-tab="presentation">Présentation</button>
+                    <button class="tab-btn" data-tab="langues">Langues</button>
+                    <button class="tab-btn" data-tab="soft-skills">Soft Skills</button>
+                    <button class="tab-btn" data-tab="loisirs">Loisirs</button>
+                </div>
+
+                <!-- Contenus correspondants -->
+                <div class="tab-content active" id="presentation">
+                    <p>
+                    Je suis une jeune femme <strong>déterminée</strong> et <strong>ambitieuse</strong>, actuellement en 3ᵉ année à <strong>EPITECH</strong>.<br>
+                    Mon objectif : devenir <strong>ingénieure en cybersécurité</strong>.<br>
+                    Mon parcours témoigne de ma <strong>persévérance</strong>, de ma <strong>rigueur</strong> et de mon <strong>engagement</strong> dans chaque projet.<br>
+                    Je suis <strong>studieuse</strong>, <strongmotivée</strong> et prête à relever tous les défis pour atteindre l’excellence dans mon futur métier.
+                    </p>
+                </div>
+
+                <div class="tab-content" id="langues">
+                  <div class="lang-grid">
+                    <div class="lang-card">
+                      <img src="images/fr.jpg" alt="Drapeau France">
+                      <p>Français<br><small>Langue maternelle</small></p>
+                    </div>
+                    <div class="lang-card">
+                      <img src="images/uk.jpg" alt="Drapeau Royaume-Uni">
+                      <p>Anglais<br><small>Niveau B1</small></p>
+                    </div>
+                    <div class="lang-card">
+                      <img src="images/guadeloupe.jpg" alt="Drapeau Guadeloupe">
+                      <p>Créole<br><small>Niveau C1</small></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-content" id="soft-skills">
+                    <p>
+                    Je développe constamment mes <strong>compétences en leadership et gestion d'équipe</strong> pour collaborer efficacement et atteindre des objectifs communs.<br>
+                    Je suis <strong>autonome</strong> et <strong>disciplinée</strong>, capable de gérer mon temps et mes priorités avec rigueur.<br>
+                    Ma <strong>curiosité</strong> et mon <strong>optimisme</strong> me poussent à apprendre de nouvelles compétences et à rester proactive.<br>
+                    Enfin, mon <strong>esprit d'équipe</strong> me permet de contribuer positivement à tous les projets auxquels je participe.
+                    </p>
+                </div>
+                <div class="tab-content" id="loisirs">
+                    <p>
+                    Passionnée par la découverte et la créativité, j'aime <strong>voyager</strong> pour explorer de nouvelles cultures, <strong>lire</strong> pour nourrir mon imagination, <strong>danser</strong> pour m’exprimer et garder un équilibre, et <strong>écrire</strong> pour structurer mes idées et exprimer ma créativité.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Compétences
+    ============================ -->
+    <section class="skills" id="skills">
+      <h2>Compétences</h2>
+      <div class="skill">
+        <span>Microsoft Office</span>
+        <div class="bar"><div class="fill" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <span>C/C++</span>
+        <div class="bar"><div class="fill" style="width: 60%;"></div></div>
+      </div>
+      <div class="skill">
+        <span>HTML / CSS</span>
+        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill">
+        <span>Pyhton</span>
+        <div class="bar"><div class="fill" style="width: 70%;"></div></div>
+      </div>
+      <div class="skill">
+        <span>Linux</span>
+        <div class="bar"><div class="fill" style="width: 45%;"></div></div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         Projets
+    ============================ -->
+    <section class="projects" id="projects">
+      <h2>Projets</h2>
+
+      <div class="projects-grid">
+        <div class="project-item">
+          <h3>Projet académique – Robot</h3>
+          <p>
+          Arrivée <strong>3ᵉ</strong> au concours de robotique de l'Université d'Evry, moi et mon équipe avons construit et programmer un robot sur <strong>Arduino</strong>
+          </p>
+        </div>
+
+        <div class="project-item">
+          <h3>Projet personnel – Mini-projet Web </h3>
+          <p>
+          Le but de ce projet était de créer une mini “To-do List” interactive en HTML, CSS et JavaScript. 
+          </p>
+        </div>
+
+        <div class="project-item">
+          <h3>Work in progress – Portfolio personnel</h3>
+          <p>
+          Développement de mon propre site web portfolio pour mettre en valeur mes compétences et mes futurs projets.
+          </p>
+        </div>
+
+        <div class="project-item">
+          <h3>Projets à venir</h3>
+          <p>
+          Je suis en train de travailler sur mes premiers projets pratiques en <strong>cybersécurité</strong> et <strong>développement</strong>, qui viendront prochainement enrichir cette section.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===========================
+         Contact
+    ============================ -->
+    <section class="contact" id="contact">
+      <h2>Me contacter</h2>
+      <div class="link-buttons">
+        <a href="https://www.linkedin.com/in/johanna-angloma-02132b289/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/johannacode" target="_blank">GitHub</a>
+        <a href="mailto:johanna_angloma@outlook.com">Email</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===========================
+       Footer
+  ============================ -->
+  <footer>
+    <p>&copy; 2025 Johanna Angloma</p>
+  </footer>
+
+  <!-- ===========================
+       Scripts JS
+  ============================ -->
+  <script src="script.js"></script>
+</body>
+</html>
