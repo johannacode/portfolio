@@ -445,3 +445,20 @@ footer {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+.project-link-small {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 12px;
+  background-color: #DB6048; /* couleur terracotta */
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.project-link-small:hover {
+  background-color: #B27163; /* une nuance un peu plus sombre au hover */
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
