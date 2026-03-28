@@ -1,0 +1,286 @@
+.hero {
+  min-height: 100vh;
+  padding-top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Orbes */
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.hero__orb--1 {
+  width: 600px;
+  height: 600px;
+  top: -150px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(212, 165, 165, 0.15) 0%, transparent 70%);
+  animation: float 10s ease-in-out infinite;
+}
+
+.hero__orb--2 {
+  width: 400px;
+  height: 400px;
+  bottom: -80px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(184, 139, 139, 0.10) 0%, transparent 70%);
+  animation: float 13s ease-in-out infinite reverse;
+}
+
+/* Grid pattern */
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(212, 165, 165, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 165, 165, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Inner */
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  max-width: 760px;
+  animation: fadeUp 0.8s var(--ease-out) both;
+}
+
+/* Badge */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(124, 92, 191, 0.12);
+  border: 1px solid rgba(124, 92, 191, 0.3);
+  color: var(--color-violet-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+  margin-bottom: 1.75rem;
+  animation: fadeUp 0.7s var(--ease-out) 0.1s both;
+}
+
+.hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #4ade80;
+  animation: blink 2s ease-in-out infinite;
+}
+
+/* Nom */
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.8s var(--ease-out) 0.15s both;
+}
+
+.hero__name-accent {
+  background: linear-gradient(135deg, var(--color-violet-light) 0%, var(--color-rose-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typewriter */
+.hero__typewriter {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 1.8rem;
+  margin-bottom: 1.25rem;
+  animation: fadeUp 0.8s var(--ease-out) 0.25s both;
+}
+
+.hero__typed {
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--color-violet-light);
+  letter-spacing: 0.04em;
+}
+
+.hero__cursor {
+  font-family: var(--font-mono);
+  color: var(--color-rose-light);
+  animation: blink 0.9s step-end infinite;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Tagline */
+.hero__tagline {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  animation: fadeUp 0.8s var(--ease-out) 0.3s both;
+}
+
+.hero__tagline strong {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Bio */
+.hero__bio {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  max-width: 580px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s var(--ease-out) 0.35s both;
+}
+
+/* Pills */
+.hero__pills {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s var(--ease-out) 0.4s both;
+}
+
+.hero__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-surface);
+  border: 1px solid rgba(124, 92, 191, 0.2);
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+}
+
+/* Actions */
+.hero__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 3rem;
+  animation: fadeUp 0.8s var(--ease-out) 0.45s both;
+}
+
+.hero__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-violet);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.hero__btn-primary:hover {
+  background: var(--color-violet-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--color-violet-glow);
+}
+
+.hero__btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.7rem 1.2rem;
+  border-radius: 99px;
+  border: 1.5px solid rgba(124, 92, 191, 0.35);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.hero__btn-outline:hover {
+  border-color: var(--color-violet-light);
+  color: var(--color-violet-light);
+  background: var(--color-violet-pale);
+}
+
+.hero__btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  padding: 0.7rem 0.9rem;
+  border-radius: 99px;
+  transition: color 0.2s;
+}
+
+.hero__btn-ghost:hover {
+  color: var(--color-violet-light);
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease 1.8s both;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero__inner {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero__name {
+    font-size: clamp(2.6rem, 12vw, 3.5rem);
+  }
+
+  .hero__stats {
+    gap: 0.75rem;
+  }
+
+  .hero__stat {
+    padding: 0.75rem 1rem;
+    min-width: 85px;
+  }
+
+  .hero__stat-val {
+    font-size: 1.3rem;
+  }
+
+  .hero__actions {
+    gap: 0.5rem;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}
