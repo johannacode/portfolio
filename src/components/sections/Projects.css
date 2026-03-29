@@ -82,6 +82,14 @@
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
   align-items: stretch;
+
+  overflow-x: auto;        
+  scroll-behavior: smooth; 
+}
+
+/* pour enlevé la barre du dessous */
+.carousel__track::-webkit-scrollbar {
+  display: none;
 }
 .carousel__dots {
   display: flex; justify-content: center; align-items: center;
@@ -101,7 +109,6 @@
 
 /* CARTE PROJET  */
 .pcard {
-  /* Mobile : 1 carte pleine largeur */
   flex: 0 0 100%;
   min-width: 0;
   background: var(--color-surface);

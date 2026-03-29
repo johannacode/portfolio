@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { personalInfo } from "../../data/portfolio";
 import "./Hero.css";
+import { IoLocationOutline } from "react-icons/io5";
+import { MdSchool } from "react-icons/md";
 
 function useTypewriter(words, speed = 80, pause = 1800) {
   const [display, setDisplay] = useState("");
@@ -74,16 +76,12 @@ export default function Hero() {
         {/* Meta pills */}
         <div className="hero__pills">
           <span className="hero__pill">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-              <circle cx="12" cy="9" r="2.5"/>
-            </svg>
+            <IoLocationOutline size={13} />
             {personalInfo.location}
           </span>
+
           <span className="hero__pill">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
+            <MdSchool size={13} />
             EPITECH · 3ème année
           </span>
         </div>
@@ -93,12 +91,12 @@ export default function Hero() {
           <button className="hero__btn-primary" onClick={() => scrollTo("projets")}>
             Voir mes projets
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </button>
           <a href={personalInfo.cv} className="hero__btn-outline" target="_blank" rel="noopener noreferrer">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             Mon CV
           </a>
