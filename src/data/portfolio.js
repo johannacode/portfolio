@@ -1,7 +1,3 @@
-// ============================================================
-// DATA — Modifie uniquement ce fichier pour mettre à jour le site
-// ============================================================
-
 export const personalInfo = {
   name: "Johanna Angloma",
   title: "Développeuse Web",
@@ -12,7 +8,7 @@ export const personalInfo = {
     "Passionnée de code",
   ],
   tagline: "Bientôt en Mastère MSc Cybersécurité",
-  bio: "Curieuse et déterminée, je transforme mes projets perso en terrains d’expérimentation. Passionnée par la cybersécurité, j’explore, j’apprends et je crée pour rejoindre un monde où la technique rime avec imagination.",
+  bio: "Curieuse et déterminée, je transforme mes projets perso en terrains d'expérimentation. Passionnée par la cybersécurité, j'explore, j'apprends et je crée pour rejoindre un monde où la technique rime avec imagination.",
   location: "Île-de-France",
   email: "johanna_angloma@outlook.fr",
   phone: "+33 6 34 05 19 08",
@@ -22,6 +18,11 @@ export const personalInfo = {
   school: "EPITECH",
   availability: "Disponible pour une alternance",
 };
+
+// ============================================================
+// PROJETS — ajoute les tiens ici
+// category : "web" | "academique" | "logiciel"
+// ============================================================
 
 export const projects = [
   {
@@ -33,8 +34,8 @@ export const projects = [
     tags: ["Arduino", "C++", "Électronique"],
     category: "academique",
     highlight: "3ème au concours",
-    color: "#7c5cbf",
     placeholder: "robot",
+    link: null,
   },
   {
     id: 2,
@@ -44,8 +45,8 @@ export const projects = [
       "CV numérique moderne avec animations CSS avancées et interactions JavaScript. Design responsive et accessible.",
     tags: ["HTML", "CSS", "JavaScript", "Responsive"],
     category: "web",
-    color: "#9b7fd4",
     placeholder: "cv",
+    link: null,
   },
   {
     id: 3,
@@ -55,8 +56,8 @@ export const projects = [
       "Jeu interactif du pendu avec interface graphique Pygame. Gestion des états, des scores et d'une base de mots.",
     tags: ["Python", "Pygame"],
     category: "logiciel",
-    color: "#c084b0",
     placeholder: "game",
+    link: null,
   },
   {
     id: 4,
@@ -66,9 +67,9 @@ export const projects = [
       "Refonte complète de mon portfolio avec React, architecture modulaire et design system personnalisé. Vous l'avez sous les yeux.",
     tags: ["React", "CSS", "Design System"],
     category: "web",
-    color: "#7c5cbf",
     inProgress: true,
     placeholder: "portfolio",
+    link: null,
   },
   {
     id: 5,
@@ -78,10 +79,15 @@ export const projects = [
       "Première version de mon portfolio en HTML/CSS/JS vanilla — le point de départ d'une longue aventure web.",
     tags: ["HTML", "CSS", "JavaScript"],
     category: "web",
-    link: "https://johannacode.github.io/portfolio/",
-    color: "#9b7fd4",
     placeholder: "portfolio1",
+    link: "https://johannacode.github.io/portfolio/",
   },
+];
+
+export const PROJECT_CATEGORIES = [
+  { id: "web",       label: "Web",        accent: "#d4a5a5" },
+  { id: "academique",label: "Académique", accent: "#c084b0" },
+  { id: "logiciel",  label: "Logiciel",   accent: "#b8a0d4" },
 ];
 
 export const skills = {
@@ -118,9 +124,9 @@ export const skills = {
 };
 
 export const navLinks = [
-  { label: "Accueil",      href: "#hero" },
-  { label: "Projets",      href: "#projets" },
-  { label: "Compétences",  href: "#competences" },
-  { label: "À propos",     href: "#about" },
-  { label: "Contact",      href: "#contact" },
+  { label: "Accueil",     href: "#hero" },
+  { label: "Projets",     href: "#projets" },
+  { label: "Compétences", href: "#competences" },
+  { label: "À propos",    href: "#about" },
+  { label: "Contact",     href: "#contact" },
 ];

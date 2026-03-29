@@ -1,105 +1,220 @@
-import React, { useState } from "react";
-import { projects } from "../../data/portfolio";
+import React, { useState, useRef, useCallback } from "react";
+import { projects, PROJECT_CATEGORIES } from "../../data/portfolio";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import ProjectModal from "../ui/ProjectModal";
 import "./Projects.css";
 
-const CATEGORIES = [
-  { id: "all", label: "Tous" },
-  { id: "web", label: "Web" },
-  { id: "logiciel", label: "Logiciel" },
-  { id: "academique", label: "Académique" },
-];
+const PLACEHOLDER_MAP = {
+  robot:      { emoji: "🤖", tech: "Arduino & C++" },
+  cv:         { emoji: "📄", tech: "HTML / CSS / JS" },
+  game:       { emoji: "🎮", tech: "Python & Pygame" },
+  portfolio:  { emoji: "💻", tech: "React" },
+  portfolio1: { emoji: "🌐", tech: "HTML / CSS / JS" },
+};
 
-// Génère un placeholder SVG coloré selon le projet
-function PlaceholderVisual({ project }) {
-  const shapes = {
-    robot:      { emoji: "🤖", label: "Arduino & C++" },
-    cv:         { emoji: "📄", label: "HTML / CSS / JS" },
-    game:       { emoji: "🎮", label: "Python & Pygame" },
-    portfolio:  { emoji: "💻", label: "React" },
-    portfolio1: { emoji: "🌐", label: "HTML / CSS / JS" },
-  };
-  const s = shapes[project.placeholder] || { emoji: "🗂️", label: project.tags[0] };
+// Carte 
+function ProjectCard({ project, accent, isActive, isDragging, onClick }) {
+  const p = PLACEHOLDER_MAP[project.placeholder] || { emoji: "🗂️", tech: project.tags[0] };
 
   return (
-    <div className="project-visual" style={{ "--proj-color": project.color }}>
-      <div className="project-visual__inner">
-        <span className="project-visual__emoji">{s.emoji}</span>
-        <span className="project-visual__label">{s.label}</span>
+    <div
+      className={`pcard${isActive ? " pcard--active" : ""}`}
+      style={{ "--accent": accent }}
+      onClick={() => { if (!isDragging) onClick(); }}
+      role="button"
+      tabIndex={-1}
+    >
+      {/* visuel projet */}
+      <div className="pcard__visual">
+        <span className="pcard__emoji">{p.emoji}</span>
+        <span className="pcard__tech">{p.tech}</span>
+        {project.inProgress && <span className="pcard__badge pcard__badge--wip">En cours</span>}
+        {project.highlight  && <span className="pcard__badge pcard__badge--hl">{project.highlight}</span>}
       </div>
-      {project.inProgress && <span className="project-visual__wip">En cours</span>}
-      {project.highlight && <span className="project-visual__badge">{project.highlight}</span>}
+
+      {/* infos projet */}
+      <div className="pcard__body">
+        <p className="pcard__subtitle">{project.subtitle}</p>
+        <h4 className="pcard__title">{project.title}</h4>
+        <p className="pcard__desc">{project.description}</p>
+        <div className="pcard__tags">
+          {project.tags.map(t => <span key={t} className="pcard__tag">{t}</span>)}
+        </div>
+        <span className="pcard__cta">
+          En savoir plus
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </span>
+      </div>
     </div>
   );
 }
 
+// Section principale
+const ALL_TAB = { id: "all", label: "Tous", accent: "#d4a5a5" };
+
 export default function Projects() {
-  const [filter, setFilter] = useState("all");
-  const [selected, setSelected] = useState(null);
   const { ref, isVisible } = useScrollReveal();
 
-  const filtered = filter === "all" ? projects : projects.filter(p => p.category === filter);
+  // Onglet actif
+  const [activeTab, setActiveTab] = useState("all");
+  const tabs        = [ALL_TAB, ...PROJECT_CATEGORIES];
+  const filtered    = activeTab === "all" ? projects : projects.filter(p => p.category === activeTab);
+  const accent      = tabs.find(t => t.id === activeTab)?.accent ?? "#d4a5a5";
+
+  // Carrousel
+  const [current, setCurrent]       = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [selected, setSelected]     = useState(null);
+  const dragStart = useRef(null);
+  const dragDelta = useRef(0);
+  const total = filtered.length;
+
+  const goTo = useCallback((idx) => {
+    setCurrent(Math.max(0, Math.min(idx, total - 1)));
+  }, [total]);
+
+  // Quand on change d'onglet
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    setCurrent(0);
+  };
+
+  // Touch
+  const onTouchStart = (e) => { dragStart.current = e.touches[0].clientX; dragDelta.current = 0; };
+  const onTouchMove  = (e) => { if (dragStart.current !== null) dragDelta.current = e.touches[0].clientX - dragStart.current; };
+  const onTouchEnd   = () => {
+    if (Math.abs(dragDelta.current) > 50) dragDelta.current < 0 ? goTo(current + 1) : goTo(current - 1);
+    dragStart.current = null; dragDelta.current = 0;
+  };
+
+  // Mouse drag
+  const onMouseDown  = (e) => { dragStart.current = e.clientX; dragDelta.current = 0; setIsDragging(false); };
+  const onMouseMove  = (e) => {
+    if (dragStart.current !== null) {
+      dragDelta.current = e.clientX - dragStart.current;
+      if (Math.abs(dragDelta.current) > 6) setIsDragging(true);
+    }
+  };
+  const onMouseUp    = () => {
+    if (Math.abs(dragDelta.current) > 50) dragDelta.current < 0 ? goTo(current + 1) : goTo(current - 1);
+    dragStart.current = null; dragDelta.current = 0;
+    setTimeout(() => setIsDragging(false), 0);
+  };
+  const onMouseLeave = () => {
+    if (dragStart.current !== null) { dragStart.current = null; dragDelta.current = 0; setIsDragging(false); }
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === "ArrowLeft")  { e.preventDefault(); goTo(current - 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); goTo(current + 1); }
+  };
 
   return (
-    <section className="section projects" id="projets" ref={ref}>
+    <section className="section projects" id="projets">
       <div className="container">
-        <div className={`projects__head${isVisible ? " revealed" : ""}`}>
+
+        <div ref={ref} className={`projects__head${isVisible ? " revealed" : ""}`}>
           <h2 className="section-title">Mes Projets</h2>
           <p className="section-sub">
             Découvrez mes projets perso et mes réalisations académiques.
           </p>
         </div>
 
-        {/* Filtres */}
-        <div className="projects__filters">
-          {CATEGORIES.map(cat => (
+        <div className="projects__toolbar">
+
+          {/* Onglets */}
+          <div className="projects__tabs" role="tablist">
+            {tabs.map(tab => (
+              <button
+                key={tab.id}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                className={`projects__tab${activeTab === tab.id ? " projects__tab--active" : ""}`}
+                style={activeTab === tab.id ? { "--tab-accent": tab.accent } : {}}
+                onClick={() => handleTabChange(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="carousel__nav">
             <button
-              key={cat.id}
-              className={`filter-btn${filter === cat.id ? " filter-btn--active" : ""}`}
-              onClick={() => setFilter(cat.id)}
+              className="carousel__arrow"
+              onClick={() => goTo(current - 1)}
+              disabled={current === 0}
+              aria-label="Projet précédent"
             >
-              {cat.label}
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
             </button>
-          ))}
+            <span className="carousel__counter">{current + 1} / {total}</span>
+            <button
+              className="carousel__arrow"
+              onClick={() => goTo(current + 1)}
+              disabled={current === total - 1}
+              aria-label="Projet suivant"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Grille */}
-        <div className="projects__grid">
-          {filtered.map((project, i) => (
-            <article
-              key={project.id}
-              className={`proj-card${isVisible ? " proj-card--visible" : ""}`}
-              style={{ transitionDelay: `${i * 90}ms` }}
-              onClick={() => setSelected(project)}
-              role="button"
+        {/* ── CARROUSEL ── */}
+        {total === 0 ? (
+          <p className="carousel__empty">Aucun projet dans cette catégorie pour l'instant.</p>
+        ) : (
+          <>
+            <div
+              className={`carousel__window${isDragging ? " carousel__window--dragging" : ""}`}
               tabIndex={0}
-              onKeyDown={e => e.key === "Enter" && setSelected(project)}
-              aria-label={`Voir le projet ${project.title}`}
+              onKeyDown={onKeyDown}
+              onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
+              onMouseDown={onMouseDown}   onMouseMove={onMouseMove}  onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}
             >
-              <PlaceholderVisual project={project} />
-              <div className="proj-card__body">
-                <p className="proj-card__subtitle">{project.subtitle}</p>
-                <h3 className="proj-card__title">{project.title}</h3>
-                <div className="proj-card__tags">
-                  {project.tags.slice(0, 3).map(t => (
-                    <span key={t} className="proj-tag">{t}</span>
-                  ))}
-                </div>
+              <div
+                className="carousel__track"
+                style={{ transform: `translateX(calc(-${current * 100}% - ${current * 1.5}rem))` }}
+              >
+                {filtered.map((project, idx) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    accent={accent}
+                    isActive={idx === current}
+                    isDragging={isDragging}
+                    onClick={() => setSelected({ project, accent })}
+                  />
+                ))}
               </div>
-              <div className="proj-card__hover-cta">
-                Voir le projet
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
-                </svg>
-              </div>
-            </article>
-          ))}
-        </div>
+            </div>
+
+            <div className="carousel__dots">
+              {filtered.map((_, i) => (
+                <button
+                  key={i}
+                  className={`carousel__dot${i === current ? " carousel__dot--active" : ""}`}
+                  style={i === current ? { background: accent, width: "22px" } : {}}
+                  onClick={() => goTo(i)}
+                  aria-label={`Projet ${i + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       {selected && (
-        <ProjectModal project={selected} onClose={() => setSelected(null)} />
+        <ProjectModal
+          project={selected.project}
+          accent={selected.accent}
+          onClose={() => setSelected(null)}
+        />
       )}
     </section>
   );

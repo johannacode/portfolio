@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ===== DESIGN TOKENS ===== */
 :root {
-  --color-bg:           #1a1218;   /* fond sombre rosé très foncé */
+  --color-bg:           #1a1218;   
   --color-bg-alt:       #221820;
   --color-surface:      #2c1f28;
   --color-surface-2:    #3a2835;
 
-  --color-violet:       #d4a5a5;   /* rose de ta v1 */
+  --color-violet:       #d4a5a5;   
   --color-violet-light: #e0bcbc;
   --color-violet-dark:  #b88b8b;
   --color-violet-pale:  rgba(212,165,165,0.12);
@@ -22,7 +21,6 @@
   --color-text-muted:     #9d7e7e;
   --color-text-faint:     #5c4040;
 
-  /* Le reste des variables reste identique */
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    'DM Sans', system-ui, sans-serif;
   --font-mono:    'JetBrains Mono', monospace;

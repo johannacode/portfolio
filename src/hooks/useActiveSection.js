@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Hook pour détecter quelle section est actuellement visible,
- * utile pour la navigation active.
+ * Hook pour détecter quelle section est actuellement visible
  */
 export function useActiveSection(sectionIds) {
   const [activeSection, setActiveSection] = useState(sectionIds[0] || "");
