@@ -14,13 +14,13 @@
 }
 .navbar__logo { display: flex; align-items: center; gap: 0.6rem; }
 .navbar__logo-box {
-  width: 34px; height: 34px; background: var(--color-violet);
+  width: 34px; height: 34px; background: var(--color-beige);
   border-radius: 8px; display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display); font-weight: 800; font-size: 0.78rem;
   color: white; letter-spacing: 0.03em; flex-shrink: 0;
   transition: background 0.2s;
 }
-.navbar__logo:hover .navbar__logo-box { background: var(--color-violet-dark); }
+.navbar__logo:hover .navbar__logo-box { background: var(--color-beige-dark); }
 .navbar__logo-text {
   font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;
   color: var(--color-text-primary);
@@ -32,18 +32,18 @@
 }
 .navbar__link::after {
   content: ''; position: absolute; bottom: -3px; left: 0; right: 100%; height: 2px;
-  background: var(--color-violet-light); border-radius: 99px; transition: right 0.3s var(--ease-out);
+  background: var(--color-beige-light); border-radius: 99px; transition: right 0.3s var(--ease-out);
 }
 .navbar__link:hover, .navbar__link--active { color: var(--color-text-primary); }
 .navbar__link:hover::after, .navbar__link--active::after { right: 0; }
 .navbar__cta {
-  background: var(--color-violet); color: white; font-size: 0.82rem; font-weight: 600;
+  background: var(--color-beige); color: white; font-size: 0.82rem; font-weight: 600;
   padding: 0.45rem 1.1rem; border-radius: 99px;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .navbar__cta:hover {
-  background: var(--color-violet-dark); transform: translateY(-1px);
-  box-shadow: 0 4px 16px var(--color-violet-glow);
+  background: var(--color-beige-dark); transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--color-beige-glow);
 }
 .navbar__burger {
   display: none; flex-direction: column; gap: 5px;
@@ -71,9 +71,9 @@
   padding: 0.6rem 0; border-bottom: 1px solid rgba(124,92,191,0.1);
   transition: color 0.2s;
 }
-.navbar__mobile-link:hover { color: var(--color-violet-light); }
+.navbar__mobile-link:hover { color: var(--color-beige-light); }
 .navbar__mobile-cta {
-  margin-top: 0.5rem; background: var(--color-violet); color: white;
+  margin-top: 0.5rem; background: var(--color-beige); color: white;
   text-align: center; padding: 0.75rem; border-radius: 10px; font-weight: 600;
 }
 @media (max-width: 768px) {

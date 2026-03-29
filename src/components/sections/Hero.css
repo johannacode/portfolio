@@ -21,7 +21,7 @@
   height: 600px;
   top: -150px;
   right: -150px;
-  background: radial-gradient(circle, var(--color-violet-pale), transparent 70%);
+  background: radial-gradient(circle, var(--color-beige-pale), transparent 70%);
   animation: float 10s ease-in-out infinite;
 }
 
@@ -30,7 +30,7 @@
   height: 400px;
   bottom: -80px;
   left: -100px;
-  background: radial-gradient(circle, var(--color-violet-pale), transparent 70%);
+  background: radial-gradient(circle, var(--color-beige-pale), transparent 70%);
   animation: float 13s ease-in-out infinite reverse;
 }
 
@@ -60,9 +60,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--color-violet-pale);
-  border: 1px solid var(--color-violet-pale);
-  color: var(--color-violet-light);
+  background: var(--color-beige-pale);
+  border: 1px solid var(--color-beige-pale);
+  color: var(--color-beige-light);
   font-size: 0.78rem;
   font-weight: 600;
   font-family: var(--font-mono);
@@ -94,7 +94,7 @@
 }
 
 .hero__name-accent {
-  background: linear-gradient(135deg, var(--color-violet-light) 0%, var(--color-rose-light) 100%);
+  background: linear-gradient(135deg, var(--color-beige-light) 0%, var(--color-rose-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -113,7 +113,7 @@
 .hero__typed {
   font-family: var(--font-mono);
   font-size: clamp(0.9rem, 2vw, 1.05rem);
-  color: var(--color-violet-light);
+  color: var(--color-beige-light);
   letter-spacing: 0.04em;
 }
 
@@ -162,7 +162,7 @@
   align-items: center;
   gap: 0.4rem;
   background: var(--color-surface);
-  border: 1px solid var(--color-violet-pale);
+  border: 1px solid var(--color-beige-pale);
   color: var(--color-text-muted);
   font-size: 0.82rem;
   font-weight: 500;
@@ -184,7 +184,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: var(--color-violet);
+  background: var(--color-beige);
   color: white;
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -197,9 +197,9 @@
 }
 
 .hero__btn-primary:hover {
-  background: var(--color-violet-dark);
+  background: var(--color-beige-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px var(--color-violet-glow);
+  box-shadow: 0 6px 24px var(--color-beige-glow);
 }
 
 .hero__btn-outline {
@@ -212,14 +212,14 @@
   font-weight: 500;
   padding: 0.7rem 1.2rem;
   border-radius: 99px;
-  border: 1.5px solid var(--color-violet-pale);
+  border: 1.5px solid var(--color-beige-pale);
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
 .hero__btn-outline:hover {
-  border-color: var(--color-violet-light);
-  color: var(--color-violet-light);
-  background: var(--color-violet-pale);
+  border-color: var(--color-beige-light);
+  color: var(--color-beige-light);
+  background: var(--color-beige-pale);
 }
 
 .hero__btn-ghost {
@@ -234,7 +234,7 @@
 }
 
 .hero__btn-ghost:hover {
-  color: var(--color-violet-light);
+  color: var(--color-beige-light);
 }
 
 /* Scroll indicator */

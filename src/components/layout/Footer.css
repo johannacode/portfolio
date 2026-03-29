@@ -7,7 +7,7 @@
 }
 .footer__left { display: flex; align-items: center; gap: 0.75rem; }
 .footer__logo {
-  width: 30px; height: 30px; background: var(--color-violet); color: white;
+  width: 30px; height: 30px; background: var(--color-beige); color: white;
   border-radius: 7px; display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display); font-weight: 800; font-size: 0.72rem; flex-shrink: 0;
 }
@@ -16,7 +16,7 @@
 .footer__link {
   font-size: 0.82rem; color: var(--color-text-muted); transition: color 0.2s;
 }
-.footer__link:hover { color: var(--color-violet-light); }
+.footer__link:hover { color: var(--color-beige-light); }
 @media (max-width: 480px) {
   .footer__inner { flex-direction: column; align-items: flex-start; }
 }

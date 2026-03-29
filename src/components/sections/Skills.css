@@ -28,16 +28,16 @@
   color: var(--color-text-muted); cursor: pointer; text-align: left;
   transition: all 0.2s;
 }
-.skills__tab:hover { background: var(--color-violet-pale); color: var(--color-text-secondary); }
+.skills__tab:hover { background: var(--color-beige-pale); color: var(--color-text-secondary); }
 .skills__tab--active {
-  background: var(--color-violet-pale); border-color: var(--color-violet-glow);
-  color: var(--color-violet-light);
+  background: var(--color-beige-pale); border-color: var(--color-beige-glow);
+  color: var(--color-beige-light);
 }
 .skills__tab-icon { font-size: 1rem; flex-shrink: 0; }
 .skills__tab-label { flex: 1; }
 .skills__tab-count {
   font-family: var(--font-mono); font-size: 0.7rem;
-  background: rgba(124,92,191,0.15); color: var(--color-violet-light);
+  background: rgba(124,92,191,0.15); color: var(--color-beige-light);
   border-radius: 99px; padding: 1px 7px;
 }
 

@@ -57,7 +57,7 @@
 .carousel__arrow:hover:not(:disabled) {
   background: var(--color-surface-2);
   border-color: rgba(212,165,165,0.5);
-  color: var(--color-violet-light);
+  color: var(--color-beige-light);
   transform: scale(1.08);
 }
 .carousel__arrow:disabled { opacity: 0.28; cursor: not-allowed; }
@@ -165,7 +165,7 @@
 .pcard__badge--hl {
   left: 0.75rem;
   background: rgba(212,165,165,0.15); border: 1px solid rgba(212,165,165,0.3);
-  color: var(--color-violet-light);
+  color: var(--color-beige-light);
 }
 
 /* Infos projets */
@@ -191,7 +191,7 @@
 }
 .pcard__tag {
   font-family: var(--font-mono); font-size: 0.67rem;
-  background: rgba(212,165,165,0.09); color: var(--color-violet-light);
+  background: rgba(212,165,165,0.09); color: var(--color-beige-light);
   border: 1px solid rgba(212,165,165,0.2); padding: 2px 8px; border-radius: 99px;
 }
 .pcard__cta {

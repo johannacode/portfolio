@@ -28,8 +28,8 @@
 }
 .contact__link-card:hover {
   transform: translateX(5px);
-  box-shadow: 0 4px 20px var(--color-violet-pale);
-  border-color: var(--color-violet-glow) !important;
+  box-shadow: 0 4px 20px var(--color-beige-pale);
+  border-color: var(--color-beige-glow) !important;
 }
 .contact__link-icon { font-size: 1.1rem; flex-shrink: 0; width: 28px; }
 .contact__link-label {
@@ -42,7 +42,7 @@
   transition: transform 0.2s, color 0.2s;
 }
 .contact__link-card:hover .contact__link-arrow {
-  transform: translate(3px, -3px); color: var(--color-violet-light);
+  transform: translate(3px, -3px); color: var(--color-beige-light);
 }
 
 .contact__avail {
@@ -83,21 +83,21 @@
 }
 .contact__input::placeholder { color: var(--color-text-faint); }
 .contact__input:focus {
-  border-color: var(--color-violet);
+  border-color: var(--color-beige);
   box-shadow: 0 0 0 3px var(--color-border);
 }
 .contact__textarea { min-height: 110px; }
 
 .contact__submit {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
-  background: var(--color-violet); color: white;
+  background: var(--color-beige); color: white;
   font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
   padding: 0.75rem 1.5rem; border-radius: 99px; border: none; cursor: pointer;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .contact__submit:hover {
-  background: var(--color-violet-dark); transform: translateY(-2px);
-  box-shadow: 0 6px 24px var(--color-violet-glow);
+  background: var(--color-beige-dark); transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--color-beige-glow);
 }
 
 /* Success */
@@ -106,7 +106,7 @@
   text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
 }
 .contact__success-icon {
-  width: 52px; height: 52px; background: var(--color-violet);
+  width: 52px; height: 52px; background: var(--color-beige);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-size: 1.4rem; color: white; margin-bottom: 0.25rem;
 }
@@ -116,12 +116,12 @@
 }
 .contact__success-sub { font-size: 0.88rem; color: var(--color-text-muted); }
 .contact__success-reset {
-  background: transparent; color: var(--color-violet-light);
+  background: transparent; color: var(--color-beige-light);
   font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
   padding: 0.5rem 1.2rem; border-radius: 99px; border: 1.5px solid var(--color-border-strong);
   cursor: pointer; margin-top: 0.5rem; transition: all 0.2s;
 }
-.contact__success-reset:hover { background: var(--color-violet-pale); }
+.contact__success-reset:hover { background: var(--color-beige-pale); }
 
 /* Responsive */
 @media (max-width: 900px) {
