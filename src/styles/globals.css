@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --color-bg: #1a1218;          /* dark principal, tu peux garder */
+  --color-bg: #1a1218;          
   --color-bg-alt: #221820;
   --color-surface: #2c1f28;
   --color-surface-2: #3a2835;
 
-  --color-beige: #d4a5a5;       /* avant violet */
-  --color-beige-light: #e0bcbc; /* pour hover, selection */
-  --color-beige-dark: #b88b8b;  /* scrollbar thumb, accents sombres */
-  --color-beige-pale: rgba(212, 165, 165, 0.12); /* sur glass, selection */
-  --color-beige-glow: rgba(212, 165, 165, 0.28); /* glow / hover glow */
+  --color-beige: #d4a5a5;      
+  --color-beige-light: #e0bcbc; 
+  --color-beige-dark: #b88b8b;  
+  --color-beige-pale: rgba(212, 165, 165, 0.12); 
+  --color-beige-glow: rgba(212, 165, 165, 0.28); 
 
-  --color-rose: #c49090;        /* tu peux garder comme accent secondaire */
+  --color-rose: #c49090; 
   --color-rose-light: #d4a5a5;
   --color-rose-pale: rgba(196, 144, 144, 0.12);
 
@@ -24,6 +24,12 @@
   --color-border: rgba(212, 165, 165, 0.15);
   --color-border-strong: rgba(212, 165, 165, 0.35);
   --color-glass-border: var(--color-beige-pale);
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --nav-height: 68px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *,

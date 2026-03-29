@@ -203,13 +203,15 @@ export const skills = {
     { name: "C++", icon: "devicon-cplusplus-plain colored" },
     { name: "PHP", icon: "devicon-php-plain colored" },
     { name: "Bash", icon: "devicon-bash-plain" },
-    { name: "SQL", icon: "devicon-mysql-plain colored" },
+    { name: "Rust", icon: "devicon-rust-original colored" },
   ],
   "Front-end": [
     { name: "HTML", icon: "devicon-html5-plain colored" },
     { name: "CSS", icon: "devicon-css3-plain colored" },
     { name: "React", icon: "devicon-react-original colored" },
     { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
+    { name: "NextJS", icon: "devicon-nextjs-plain" },
+    { name: "MaterializeCSS", icon: "devicon-materializecss-plain colored" },
   ],
   "Outils": [
     { name: "Git", icon: "devicon-git-plain colored" },
@@ -218,12 +220,14 @@ export const skills = {
     { name: "Figma", icon: "devicon-figma-plain colored" },
     { name: "Linux", icon: "devicon-linux-plain" },
     { name: "Arduino", icon: "devicon-arduino-plain colored" },
+    { name: "IntelliJ", icon: "devicon-intellij-plain colored" },
+    { name: "Docker", icon: "devicon-docker-plain colored" },
+    { name: "Jenkins", icon: "devicon-jenkins-line colored" },
   ],
-  "Domaines": [
-    { name: "Cybersécurité", icon: "devicon-debian-plain colored" },
-    { name: "Algorithmique", icon: "devicon-python-plain colored" },
-    { name: "IoT / Robotique", icon: "devicon-arduino-plain colored" },
-    { name: "Responsive Design", icon: "devicon-css3-plain colored" },
+  "Bases de données": [
+    { name: "MySQL", icon: "devicon-mysql-plain colored" },
+    { name: "PostgreSQL", icon: "devicon-postgresql-plain" },
+    { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
   ],
 };
 

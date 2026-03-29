@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { skills } from "../../data/portfolio";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import "./Skills.css";
-import { FaCode, FaPaintBrush, FaTools, FaShieldAlt } from "react-icons/fa";
+import { FaCode, FaPaintBrush, FaTools, FaDatabase } from "react-icons/fa";
 
 const CATEGORY_ICONS = {
   "Langages":  <FaCode />,
   "Front-end": <FaPaintBrush />,
   "Outils":    <FaTools />,
-  "Domaines":  <FaShieldAlt />,
+  "Bases de données": <FaDatabase />,
 };
 
 export default function Skills() {
