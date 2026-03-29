@@ -71,6 +71,7 @@
 .modal__desc {
   font-size: 0.92rem; color: var(--color-text-secondary);
   line-height: 1.8; margin-bottom: 1.2rem;
+  white-space: pre-line;
 }
 .modal__tags {
   display: flex; flex-wrap: wrap; gap: 0.4rem;

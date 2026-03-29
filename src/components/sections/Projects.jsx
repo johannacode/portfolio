@@ -49,7 +49,7 @@ function ProjectCard({ project, accent, onClick, isDragging }) {
         <span className="pcard__cta">
           En savoir plus
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            <path d="M7 17L17 7M17 7H7M17 7v10" />
           </svg>
         </span>
       </div>
@@ -73,6 +73,16 @@ export default function Projects() {
   const accent = tabs.find(t => t.id === activeTab)?.accent ?? "#d4a5a5";
 
   const trackRef = useRef(null);
+
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    if (trackRef.current) {
+      trackRef.current.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const scroll = (dir) => {
     if (!trackRef.current) return;
@@ -132,7 +142,7 @@ export default function Projects() {
                 key={tab.id}
                 className={`projects__tab${activeTab === tab.id ? " projects__tab--active" : ""}`}
                 style={activeTab === tab.id ? { "--tab-accent": tab.accent } : {}}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabChange(tab.id)}
               >
                 {tab.label}
               </button>

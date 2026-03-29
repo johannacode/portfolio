@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { personalInfo } from "../../data/portfolio";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import "./Contact.css";
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhone, FaCheck, FaPaperPlane } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaGithub, FaPhoneAlt, FaCheck, FaPaperPlane } from "react-icons/fa";
+import { FiArrowUpRight } from "react-icons/fi";
+import { LuSend } from "react-icons/lu";
 
 const CONTACT_LINKS = [
   { icon: <FaEnvelope />, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
   { icon: <FaLinkedin />, label: "LinkedIn", value: "johanna-angloma", href: personalInfo.linkedin },
   { icon: <FaGithub />, label: "GitHub", value: "johannacode", href: personalInfo.github },
-  { icon: <FaPhone />, label: "Téléphone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
+  { icon: <FaPhoneAlt />, label: "Téléphone", value: personalInfo.phone, href: `tel:${personalInfo.phone}` },
 ];
 
 export default function Contact() {
@@ -49,9 +51,7 @@ export default function Contact() {
                     <p className="contact__link-label">{label}</p>
                     <p className="contact__link-value">{value}</p>
                   </div>
-                  <svg className="contact__link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
-                  </svg>
+                  <FiArrowUpRight className="contact__link-arrow" size={14} />
                 </a>
               ))}
             </div>
@@ -93,9 +93,7 @@ export default function Contact() {
                 </div>
                 <button type="submit" className="contact__submit">
                   Envoyer
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                  </svg>
+                  <LuSend size={15} />
                 </button>
               </form>
             )}

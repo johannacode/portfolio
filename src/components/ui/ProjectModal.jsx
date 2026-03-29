@@ -41,7 +41,7 @@ export default function ProjectModal({ project, accent, onClose }) {
         <div className="modal__body">
           <p className="modal__subtitle">{project.subtitle}</p>
           <h2 className="modal__title">{project.title}</h2>
-          <p className="modal__desc">{project.description}</p>
+          <p className="modal__desc">{project.longDescription}</p>
 
           <div className="modal__tags">
             {project.tags.map(t => (
