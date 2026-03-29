@@ -21,7 +21,7 @@
   height: 600px;
   top: -150px;
   right: -150px;
-  background: radial-gradient(circle, rgba(212, 165, 165, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--color-violet-pale), transparent 70%);
   animation: float 10s ease-in-out infinite;
 }
 
@@ -30,7 +30,7 @@
   height: 400px;
   bottom: -80px;
   left: -100px;
-  background: radial-gradient(circle, rgba(184, 139, 139, 0.10) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--color-violet-pale), transparent 70%);
   animation: float 13s ease-in-out infinite reverse;
 }
 
@@ -60,8 +60,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(124, 92, 191, 0.12);
-  border: 1px solid rgba(124, 92, 191, 0.3);
+  background: var(--color-violet-pale);
+  border: 1px solid var(--color-violet-pale);
   color: var(--color-violet-light);
   font-size: 0.78rem;
   font-weight: 600;
@@ -162,7 +162,7 @@
   align-items: center;
   gap: 0.4rem;
   background: var(--color-surface);
-  border: 1px solid rgba(124, 92, 191, 0.2);
+  border: 1px solid var(--color-violet-pale);
   color: var(--color-text-muted);
   font-size: 0.82rem;
   font-weight: 500;
@@ -212,7 +212,7 @@
   font-weight: 500;
   padding: 0.7rem 1.2rem;
   border-radius: 99px;
-  border: 1.5px solid rgba(124, 92, 191, 0.35);
+  border: 1.5px solid var(--color-violet-pale);
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 

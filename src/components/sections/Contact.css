@@ -28,8 +28,8 @@
 }
 .contact__link-card:hover {
   transform: translateX(5px);
-  box-shadow: 0 4px 20px rgba(124,92,191,0.1);
-  border-color: rgba(124,92,191,0.35) !important;
+  box-shadow: 0 4px 20px var(--color-violet-pale);
+  border-color: var(--color-violet-glow) !important;
 }
 .contact__link-icon { font-size: 1.1rem; flex-shrink: 0; width: 28px; }
 .contact__link-label {
@@ -77,14 +77,14 @@
 .contact__input {
   font-family: var(--font-body); font-size: 0.92rem;
   color: var(--color-text-primary); background: var(--color-bg);
-  border: 1.5px solid rgba(124,92,191,0.15); border-radius: 10px;
+  border: 1.5px solid var(--color-border); border-radius: 10px;
   padding: 0.65rem 0.9rem; outline: none; resize: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .contact__input::placeholder { color: var(--color-text-faint); }
 .contact__input:focus {
   border-color: var(--color-violet);
-  box-shadow: 0 0 0 3px rgba(124,92,191,0.15);
+  box-shadow: 0 0 0 3px var(--color-border);
 }
 .contact__textarea { min-height: 110px; }
 
@@ -118,7 +118,7 @@
 .contact__success-reset {
   background: transparent; color: var(--color-violet-light);
   font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
-  padding: 0.5rem 1.2rem; border-radius: 99px; border: 1.5px solid rgba(124,92,191,0.3);
+  padding: 0.5rem 1.2rem; border-radius: 99px; border: 1.5px solid var(--color-border-strong);
   cursor: pointer; margin-top: 0.5rem; transition: all 0.2s;
 }
 .contact__success-reset:hover { background: var(--color-violet-pale); }
