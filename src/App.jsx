@@ -11,11 +11,15 @@ import CVPage from "./components/sections/CVPage";
 import ContactModal from "./components/ui/ContactModal";
 import "./styles/globals.css";
 
+import FloatingHead from "./components/ui/FloatingHead";
+import headGif from "./assets/floating-head.gif";
+
 function Home({ onContactClick }) {
   return (
     <main>
       <Hero />
       <Projects />
+      {/* <FloatingHead gifSrc={headGif} targetId="projets" /> */}
     </main>
   );
 }
