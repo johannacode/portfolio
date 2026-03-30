@@ -1,4 +1,3 @@
-/* ── Overlay ──────────────────────────────────────────────────── */
 .contact-modal__overlay {
   position: fixed;
   inset: 0;
@@ -16,7 +15,6 @@
   pointer-events: all;
 }
 
-/* ── Panel — hauteur fixe, AUCUN scroll ───────────────────────── */
 .contact-modal {
   position: fixed;
   top: 0;
@@ -24,7 +22,7 @@
   bottom: 0;
   width: 100%;
   max-width: 500px;
-  background: rgba(34, 24, 32, 0.72);   /* glass : semi-transparent */
+  background: rgba(34, 24, 32, 0.72);   
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-left: 1px solid var(--color-border);
@@ -41,7 +39,6 @@
   transform: translateX(0);
 }
 
-/* ── Header — jamais scrollable, toujours visible ────────────── */
 .contact-modal__header {
   flex-shrink: 0;
   display: flex;
@@ -49,7 +46,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1.5rem 1.75rem 1.2rem;
-  background: rgba(34, 24, 32, 0.6);   /* glass cohérent avec le panel */
+  background: rgba(34, 24, 32, 0.6);  
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -87,18 +84,16 @@
   color: var(--color-beige-light);
 }
 
-/* ── Body — remplit l'espace, ne scroll pas ───────────────────── */
 .contact-modal__body {
   flex: 1;
-  min-height: 0;           /* nécessaire pour que flex:1 ne déborde pas */
+  min-height: 0;          
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
   padding: 1.25rem 1.75rem 1.5rem;
-  overflow: hidden;        /* sécurité supplémentaire */
+  overflow: hidden;       
 }
 
-/* ── Link cards ───────────────────────────────────────────────── */
 .contact-modal__links {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -164,7 +159,6 @@
   transform: translate(2px, -2px);
 }
 
-/* ── Divider ──────────────────────────────────────────────────── */
 .contact-modal__divider {
   display: flex;
   align-items: center;
@@ -182,7 +176,6 @@
   background: var(--color-border);
 }
 
-/* ── Form ─────────────────────────────────────────────────────── */
 .contact-modal__form {
   display: flex;
   flex-direction: column;
@@ -264,7 +257,6 @@
   box-shadow: 0 6px 20px var(--color-beige-glow);
 }
 
-/* ── Available badge — espacé du submit ───────────────────────── */
 .contact-modal__avail {
   display: inline-flex;
   align-items: center;
@@ -278,7 +270,7 @@
   padding: 0.3rem 0.8rem;
   width: fit-content;
   flex-shrink: 0;
-  margin-top: 0.5rem;   /* espace supplémentaire au-dessus du badge */
+  margin-top: 0.5rem;   
 }
 
 .contact-modal__avail-dot {
@@ -291,7 +283,6 @@
   animation: blink 2s ease-in-out infinite;
 }
 
-/* ── Success state ────────────────────────────────────────────── */
 .contact-modal__success {
   flex: 1;
   display: flex;
@@ -352,7 +343,6 @@
   color: var(--color-beige-light);
 }
 
-/* ── Mobile — sheet du bas ────────────────────────────────────── */
 @media (max-width: 560px) {
   .contact-modal {
     max-width: 100%;
@@ -363,11 +353,9 @@
     border-top: 1px solid var(--color-border);
     border-radius: 20px 20px 0 0;
     transform: translateY(100%);
-    /* garde le glass sur mobile */
     background: rgba(34, 24, 32, 0.85);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    /* réactive le scroll sur le panel entier sur mobile */
     overflow: visible;
   }
 
@@ -375,7 +363,6 @@
     transform: translateY(0);
   }
 
-  /* Sur mobile : header collé en haut, body scrollable */
   .contact-modal__header {
     position: sticky;
     top: 0;
@@ -386,10 +373,10 @@
   }
 
   .contact-modal__body {
-    overflow-y: auto;           /* scroll uniquement ici */
+    overflow-y: auto;          
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 2.5rem;     /* espace confortable en bas */
+    padding-bottom: 2.5rem;  
   }
 
   .contact-modal__links {

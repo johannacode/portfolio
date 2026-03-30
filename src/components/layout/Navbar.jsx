@@ -3,8 +3,9 @@ import { navLinks, personalInfo } from "../../data/portfolio";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import "./Navbar.css";
 
-// Contact n'est plus une section dans la page
-const SECTION_IDS = ["hero", "projets", "competences", "about"];
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
+const SECTION_IDS = ["hero", "projets", "cv"];
 
 export default function Navbar({ onContactClick }) {
   const [scrolled, setScrolled] = useState(false);
@@ -17,13 +18,28 @@ export default function Navbar({ onContactClick }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleLinkClick = (e, href) => {
+    if (href === "/cv") return;
+
     e.preventDefault();
     setMenuOpen(false);
 
-    // Lien contact → ouvrir le modal au lieu de scroller
     if (href === "#contact") {
       onContactClick?.();
+      return;
+    }
+
+    if (location.pathname !== "/") {
+      navigate("/");
+
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+
       return;
     }
 
@@ -45,15 +61,30 @@ export default function Navbar({ onContactClick }) {
 
         <nav className="navbar__links">
           {navLinks.map((link) => {
-            const id = link.href.replace("#", "");
+            const isCV = link.label === "CV";
             const isContact = link.href === "#contact";
+
+            if (isCV) {
+              return (
+                <Link
+                  key="cv"
+                  to="/cv"
+                  className="navbar__link"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  CV
+                </Link>
+              );
+            }
+
+            const id = link.href.replace("#", "");
+
             return (
               <a
                 key={link.href}
                 href={link.href}
-                className={`navbar__link${
-                  activeSection === id && !isContact ? " navbar__link--active" : ""
-                }`}
+                className={`navbar__link${activeSection === id && !isContact ? " navbar__link--active" : ""
+                  }`}
                 onClick={(e) => handleLinkClick(e, link.href)}
               >
                 {link.label}
@@ -80,16 +111,33 @@ export default function Navbar({ onContactClick }) {
       </div>
 
       <div className={`navbar__mobile${menuOpen ? " navbar__mobile--open" : ""}`}>
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className="navbar__mobile-link"
-            onClick={(e) => handleLinkClick(e, link.href)}
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map((link) => {
+          const isCV = link.label === "CV";
+
+          if (isCV) {
+            return (
+              <Link
+                key="cv"
+                to="/cv"
+                className="navbar__mobile-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                CV
+              </Link>
+            );
+          }
+
+          return (
+            <a
+              key={link.href}
+              href={link.href}
+              className="navbar__mobile-link"
+              onClick={(e) => handleLinkClick(e, link.href)}
+            >
+              {link.label}
+            </a>
+          );
+        })}
         <a
           href={personalInfo.cv}
           className="navbar__mobile-cta"

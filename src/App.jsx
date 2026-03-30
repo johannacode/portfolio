@@ -1,27 +1,47 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+
 import Hero from "./components/sections/Hero";
 import Projects from "./components/sections/Projects";
-import Skills from "./components/sections/Skills";
-import About from "./components/sections/About";
+import CVPage from "./components/sections/CVPage";
+
 import ContactModal from "./components/ui/ContactModal";
 import "./styles/globals.css";
+
+/* 🔹 Page Accueil (regroupe tes sections actuelles) */
+function Home({ onContactClick }) {
+  return (
+    <main>
+      <Hero />
+      <Projects />
+    </main>
+  );
+}
 
 export default function App() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <>
+    <Router>
       <Navbar onContactClick={() => setContactOpen(true)} />
-      <main>
-        <Hero />
-        <Projects />
-        <Skills />
-        <About />
-      </main>
+
+      <Routes>
+        {/* Page principale */}
+        <Route path="/" element={<Home />} />
+
+        {/* Page CV */}
+        <Route path="/cv" element={<CVPage />} />
+      </Routes>
+
       <Footer onContactClick={() => setContactOpen(true)} />
-      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
-    </>
+
+      <ContactModal
+        isOpen={contactOpen}
+        onClose={() => setContactOpen(false)}
+      />
+    </Router>
   );
 }

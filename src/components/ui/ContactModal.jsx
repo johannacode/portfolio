@@ -165,7 +165,6 @@ export default function ContactModal({ isOpen, onClose }) {
             </form>
           )}
 
-          {/* Badge dispo */}
           <div className="contact-modal__avail">
             <span className="contact-modal__avail-dot" />
             Disponible pour une alternance dès maintenant
