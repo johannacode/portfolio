@@ -5,21 +5,21 @@ import "./Navbar.css";
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const SECTION_IDS = ["hero", "projets", "cv"];
-
 export default function Navbar({ onContactClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const activeSection = useActiveSection(SECTION_IDS);
+
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  const isHome = location.pathname === "/";
+
+  const activeSection = useActiveSection(["hero", "projets"]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const handleLinkClick = (e, href) => {
     if (href === "/cv") return;
@@ -63,42 +63,35 @@ export default function Navbar({ onContactClick }) {
           {navLinks.map((link) => {
             const isCV = link.label === "CV";
             const isContact = link.href === "#contact";
+            const id = link.href.replace("#", "");
 
             if (isCV) {
               return (
                 <Link
                   key="cv"
                   to="/cv"
-                  className="navbar__link"
-                  onClick={() => setMenuOpen(false)}
+                  className={`navbar__link${location.pathname === "/cv" ? " navbar__link--active" : ""}`}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                 >
                   CV
                 </Link>
               );
             }
 
-            const id = link.href.replace("#", "");
-
             return (
               <a
                 key={link.href}
                 href={link.href}
-                className={`navbar__link${activeSection === id && !isContact ? " navbar__link--active" : ""
-                  }`}
+                className={`navbar__link${isHome && activeSection === id && !isContact ? " navbar__link--active" : ""}`}
                 onClick={(e) => handleLinkClick(e, link.href)}
               >
                 {link.label}
               </a>
             );
           })}
-          <a
-            href={personalInfo.cv}
-            className="navbar__cta"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            CV
-          </a>
         </nav>
 
         <button

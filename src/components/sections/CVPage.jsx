@@ -21,21 +21,17 @@ export default function CVPage() {
     <section className="cvpage section" id="cv" ref={ref}>
       <div className="container">
 
-        {/* ── En-tête ───────────────────────────────────────────── */}
         <div className={`cvpage__header${isVisible ? " revealed" : ""}`}>
           <p className="cvpage__label">Curriculum Vitæ</p>
           <h2 className="section-title">Mon <span className="cvpage__accent">parcours</span></h2>
           <p className="section-sub">À propos, formation, expériences et compétences.</p>
         </div>
 
-        {/* ── Grille principale : 3 colonnes ────────────────────── */}
         <div className="cvpage__grid">
 
-          {/* ── COL 1 — À propos ───────────────────────────────── */}
           <div className={`cvpage__col cvpage__col--about${isVisible ? " revealed" : ""}`}>
             <h3 className="cvpage__col-title">À propos</h3>
 
-            {/* Fiche identité */}
             <div className="cvpage__card glass">
               <div className="cvpage__avatar">JA</div>
               <p className="cvpage__card-name">{personalInfo.name}</p>
@@ -59,7 +55,6 @@ export default function CVPage() {
               </div>
             </div>
 
-            {/* Bio */}
             <div className="cvpage__bio">
               <p>
                 Je m'appelle <strong>Johanna Angloma</strong>, actuellement en{" "}
@@ -75,7 +70,6 @@ export default function CVPage() {
               </p>
             </div>
 
-            {/* Qualités */}
             <div className="cvpage__qualities">
               {QUALITIES.map((q, i) => (
                 <div
@@ -92,7 +86,6 @@ export default function CVPage() {
               ))}
             </div>
 
-            {/* Actions */}
             <div className="cvpage__actions">
               <a href={personalInfo.cv} className="cvpage__btn-cv" target="_blank" rel="noopener noreferrer">
                 <FaDownload size={12} />
@@ -104,7 +97,6 @@ export default function CVPage() {
             </div>
           </div>
 
-          {/* ── COL 2 — Formation & Expériences ────────────────── */}
           <div className={`cvpage__col cvpage__col--timeline${isVisible ? " revealed" : ""}`}>
             <h3 className="cvpage__col-title">Formation</h3>
 
@@ -155,11 +147,9 @@ export default function CVPage() {
             </div>
           </div>
 
-          {/* ── COL 3 — Compétences ────────────────────────────── */}
           <div className={`cvpage__col cvpage__col--skills${isVisible ? " revealed" : ""}`}>
             <h3 className="cvpage__col-title">Compétences</h3>
 
-            {/* Onglets catégories */}
             <div className="cvpage__skill-tabs">
               {SKILL_CATS.map(cat => (
                 <button
@@ -172,7 +162,6 @@ export default function CVPage() {
               ))}
             </div>
 
-            {/* Grille icônes */}
             <div className="cvpage__skill-grid">
               {cvSkills[activeCat].map((skill, i) => (
                 <div
@@ -182,7 +171,7 @@ export default function CVPage() {
                 >
                   <i className={`${skill.icon} cvpage__skill-icon`} title={skill.name} />
                   <span className="cvpage__skill-name">{skill.name}</span>
-                  {/* Barre de niveau */}
+
                   <div className="cvpage__skill-bar">
                     <div
                       className="cvpage__skill-fill"
@@ -193,7 +182,6 @@ export default function CVPage() {
               ))}
             </div>
 
-            {/* Langues */}
             <div className="cvpage__langs">
               <h4 className="cvpage__langs-title">Langues</h4>
               {[
@@ -216,7 +204,7 @@ export default function CVPage() {
             </div>
           </div>
 
-        </div>{/* /cvpage__grid */}
+        </div>
       </div>
     </section>
   );

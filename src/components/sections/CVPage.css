@@ -481,9 +481,6 @@
   transition: width 1s var(--ease-out);
 }
 
-/* Langues */
-.cvpage__langs { }
-
 .cvpage__langs-title {
   font-family: var(--font-mono);
   font-size: 0.68rem;

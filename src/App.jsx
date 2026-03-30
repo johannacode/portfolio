@@ -11,7 +11,6 @@ import CVPage from "./components/sections/CVPage";
 import ContactModal from "./components/ui/ContactModal";
 import "./styles/globals.css";
 
-/* 🔹 Page Accueil (regroupe tes sections actuelles) */
 function Home({ onContactClick }) {
   return (
     <main>
@@ -29,10 +28,7 @@ export default function App() {
       <Navbar onContactClick={() => setContactOpen(true)} />
 
       <Routes>
-        {/* Page principale */}
         <Route path="/" element={<Home />} />
-
-        {/* Page CV */}
         <Route path="/cv" element={<CVPage />} />
       </Routes>
 
