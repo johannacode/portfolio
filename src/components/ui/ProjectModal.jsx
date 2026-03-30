@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import "./ProjectModal.css";
 
 const PLACEHOLDER_MAP = {
-  robot:      { emoji: "🤖", tech: "Arduino & C++" },
-  cv:         { emoji: "📄", tech: "HTML / CSS / JS" },
-  game:       { emoji: "🎮", tech: "Python & Pygame" },
-  portfolio:  { emoji: "💻", tech: "React" },
+  robot: { emoji: "🤖", tech: "Arduino & C++" },
+  cv: { emoji: "📄", tech: "HTML / CSS / JS" },
+  game: { emoji: "🎮", tech: "Python & Pygame" },
+  portfolio: { emoji: "💻", tech: "React" },
   portfolio1: { emoji: "🌐", tech: "HTML / CSS / JS" },
 };
 
@@ -27,13 +27,17 @@ export default function ProjectModal({ project, accent, onClose }) {
         <div className="modal__accent-bar" />
 
         <div className="modal__visual">
-          <span className="modal__emoji">{p.emoji}</span>
-          <span className="modal__tech">{p.tech}</span>
+          {project.image ? (
+            <img src={project.image} alt={project.title} className="modal__img" />
+          ) : (
+            <span className="modal__emoji">{p.emoji}</span>
+          )}
+          {/* <span className="modal__tech">{p.tech}</span> */}
           {project.inProgress && <span className="modal__badge modal__badge--wip">En cours</span>}
-          {project.highlight  && <span className="modal__badge modal__badge--hl">{project.highlight}</span>}
+          {project.highlight && <span className="modal__badge modal__badge--hl">{project.highlight}</span>}
           <button className="modal__close" onClick={onClose} aria-label="Fermer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M18 6L6 18M6 6l12 12"/>
+              <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
         </div>
@@ -61,7 +65,7 @@ export default function ProjectModal({ project, accent, onClose }) {
               >
                 Voir le projet
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </a>
             )}

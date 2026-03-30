@@ -23,8 +23,12 @@ function ProjectCard({ project, accent, onClick, isDragging }) {
       onClick={() => { if (!isDragging) onClick(); }}
     >
       <div className="pcard__visual">
-        <span className="pcard__emoji">{p.emoji}</span>
-        <span className="pcard__tech">{p.tech}</span>
+        {project.image ? (
+          <img src={project.image} alt={project.title} className="pcard__img" />
+        ) : (
+          <span className="pcard__emoji">{p.emoji}</span>
+        )}
+        {/* <span className="pcard__tech">{p.tech}</span> */}
 
         {project.inProgress && (
           <span className="pcard__badge pcard__badge--wip">En cours</span>

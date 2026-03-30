@@ -1,3 +1,9 @@
+import digitalresumeImg from "../assets/digitalresume.png";
+import portfoliov1Img from "../assets/portfoliov1.png";
+import portfoliov2Img from "../assets/portfoliov2.png";
+import portfolio2018Img from "../assets/portfolio2018.png";
+import biscordImg from "../assets/biscord.png";
+
 export const personalInfo = {
   name: "Johanna Angloma",
   title: "Développeuse Web",
@@ -58,6 +64,7 @@ export const projects = [
     tags: ["NextJS", "Rust", "TypeScript", "App Dev", "TailWind CSS", "MongoDB", "Postgres", "Web socket"],
     category: "app",
     inProgress: true,
+    image: biscordImg,
     placeholder: "portfolio",
     link: null,
   },
@@ -120,6 +127,7 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript"],
     category: "web",
     placeholder: "portfolio2",
+    image: portfoliov2Img,
     link: "https://johannacode.github.io/myportfolio/",
   },
   {
@@ -140,6 +148,7 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript", "Responsive"],
     category: "web",
     placeholder: "cv",
+    image: digitalresumeImg,
     link: "https://johannacode.github.io/digitalresume/",
   },
   {
@@ -183,6 +192,7 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript"],
     category: "web",
     placeholder: "portfolio1",
+    image: portfoliov1Img,
     link: "https://johannacode.github.io/version2portfolio/",
   },
   {
@@ -197,6 +207,7 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript"],
     category: "web",
     placeholder: "portfolio1",
+    image: portfolio2018Img,
     link: "https://johannacode.github.io/version1/",
   },
 ];
