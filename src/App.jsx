@@ -19,7 +19,7 @@ function Home({ onContactClick }) {
     <main>
       <Hero />
       <Projects />
-      {/* <FloatingHead gifSrc={headGif} targetId="projets" /> */}
+      <FloatingHead gifSrc={headGif} targetId="projets" />
     </main>
   );
 }

@@ -1,0 +1,30 @@
+.floating-head {
+  position: fixed;
+  left: 1rem;
+  top: 70%;
+  width: 140px;
+  height: 140px;
+
+  z-index: 9999;
+  cursor: pointer;
+
+  transition: transform 2.2s ease-in, opacity 0.3s ease;
+}
+
+.floating-head--visible {
+  transform: translateX(0) scale(1.05);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floating-head--hidden {
+  transform: translateX(-140%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .floating-head {
+    display: none;
+  }
+}
