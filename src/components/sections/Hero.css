@@ -8,7 +8,6 @@
   overflow: hidden;
 }
 
-/* Orbes */
 .hero__orb {
   position: absolute;
   border-radius: 50%;
@@ -34,7 +33,6 @@
   animation: float 13s ease-in-out infinite reverse;
 }
 
-/* Grid pattern */
 .hero__grid {
   position: absolute;
   inset: 0;
@@ -45,7 +43,6 @@
   background-size: 40px 40px;
 }
 
-/* Inner */
 .hero__inner {
   position: relative;
   z-index: 1;
@@ -55,7 +52,6 @@
   animation: fadeUp 0.8s var(--ease-out) both;
 }
 
-/* Badge */
 .hero__badge {
   display: inline-flex;
   align-items: center;
@@ -82,7 +78,6 @@
   animation: blink 2s ease-in-out infinite;
 }
 
-/* Nom */
 .hero__name {
   font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 5.5rem);
@@ -100,7 +95,6 @@
   background-clip: text;
 }
 
-/* Typewriter */
 .hero__typewriter {
   display: flex;
   align-items: center;
@@ -125,7 +119,6 @@
   line-height: 1;
 }
 
-/* Tagline */
 .hero__tagline {
   font-size: 0.95rem;
   color: var(--color-text-muted);
@@ -138,7 +131,6 @@
   font-weight: 500;
 }
 
-/* Bio */
 .hero__bio {
   font-size: 1rem;
   color: var(--color-text-secondary);
@@ -148,7 +140,6 @@
   animation: fadeUp 0.8s var(--ease-out) 0.35s both;
 }
 
-/* Pills */
 .hero__pills {
   display: flex;
   gap: 0.75rem;
@@ -170,7 +161,6 @@
   border-radius: 99px;
 }
 
-/* Actions */
 .hero__actions {
   display: flex;
   gap: 0.75rem;
@@ -237,7 +227,6 @@
   color: var(--color-beige-light);
 }
 
-/* Scroll indicator */
 .hero__scroll {
   position: absolute;
   bottom: 2rem;
@@ -252,7 +241,6 @@
   animation: fadeIn 1s ease 1.8s both;
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .hero__inner {
     padding-top: 2rem;

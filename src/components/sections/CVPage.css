@@ -47,7 +47,6 @@
   background-clip: text;
 }
 
-/* ── 3-column grid ───────────────────────────────────────────── */
 .cvpage__grid {
   display: grid;
   grid-template-columns: 280px 1fr 300px;
