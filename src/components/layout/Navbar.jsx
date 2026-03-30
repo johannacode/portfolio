@@ -3,9 +3,10 @@ import { navLinks, personalInfo } from "../../data/portfolio";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import "./Navbar.css";
 
-const SECTION_IDS = ["hero", "projets", "competences", "about", "contact"];
+// Contact n'est plus une section dans la page
+const SECTION_IDS = ["hero", "projets", "competences", "about"];
 
-export default function Navbar() {
+export default function Navbar({ onContactClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const activeSection = useActiveSection(SECTION_IDS);
@@ -16,8 +17,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = (href) => {
+  const handleLinkClick = (e, href) => {
+    e.preventDefault();
     setMenuOpen(false);
+
+    // Lien contact → ouvrir le modal au lieu de scroller
+    if (href === "#contact") {
+      onContactClick?.();
+      return;
+    }
+
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -25,33 +34,45 @@ export default function Navbar() {
   return (
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
       <div className="container navbar__inner">
-        <a className="navbar__logo" href="#hero" onClick={e => { e.preventDefault(); scrollTo("#hero"); }}>
+        <a
+          className="navbar__logo"
+          href="#hero"
+          onClick={(e) => handleLinkClick(e, "#hero")}
+        >
           <span className="navbar__logo-box">JA</span>
           <span className="navbar__logo-text">Johanna Angloma</span>
         </a>
 
         <nav className="navbar__links">
-          {navLinks.map(link => {
+          {navLinks.map((link) => {
             const id = link.href.replace("#", "");
+            const isContact = link.href === "#contact";
             return (
               <a
                 key={link.href}
                 href={link.href}
-                className={`navbar__link${activeSection === id ? " navbar__link--active" : ""}`}
-                onClick={e => { e.preventDefault(); scrollTo(link.href); }}
+                className={`navbar__link${
+                  activeSection === id && !isContact ? " navbar__link--active" : ""
+                }`}
+                onClick={(e) => handleLinkClick(e, link.href)}
               >
                 {link.label}
               </a>
             );
           })}
-          <a href={personalInfo.cv} className="navbar__cta" target="_blank" rel="noopener noreferrer">
+          <a
+            href={personalInfo.cv}
+            className="navbar__cta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             CV
           </a>
         </nav>
 
         <button
           className={`navbar__burger${menuOpen ? " open" : ""}`}
-          onClick={() => setMenuOpen(v => !v)}
+          onClick={() => setMenuOpen((v) => !v)}
           aria-label="Menu"
         >
           <span /><span /><span />
@@ -59,13 +80,22 @@ export default function Navbar() {
       </div>
 
       <div className={`navbar__mobile${menuOpen ? " navbar__mobile--open" : ""}`}>
-        {navLinks.map(link => (
-          <a key={link.href} href={link.href} className="navbar__mobile-link"
-            onClick={e => { e.preventDefault(); scrollTo(link.href); }}>
+        {navLinks.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="navbar__mobile-link"
+            onClick={(e) => handleLinkClick(e, link.href)}
+          >
             {link.label}
           </a>
         ))}
-        <a href={personalInfo.cv} className="navbar__mobile-cta" target="_blank" rel="noopener noreferrer">
+        <a
+          href={personalInfo.cv}
+          className="navbar__mobile-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Télécharger mon CV
         </a>
       </div>
