@@ -1,6 +1,6 @@
 {
   "name": "johanna-portfolio",
-  "homepage": "https://johannacode.github.io/portfolio",
+  "homepage": "https://johannacode.github.io",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
