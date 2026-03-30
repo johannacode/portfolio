@@ -1,13 +1,14 @@
 .navbar {
+  /* background: transparent; */
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   height: var(--nav-height);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .navbar--scrolled {
-  background: rgba(18, 17, 26, 0.88);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(124,92,191,0.15);
+  box-shadow: 0 4px 20px rgba(196, 138, 138, 0.08);
 }
 .navbar__inner {
   height: 100%; display: flex; align-items: center; justify-content: space-between;
@@ -45,6 +46,29 @@
   background: var(--color-beige-dark); transform: translateY(-1px);
   box-shadow: 0 4px 16px var(--color-beige-glow);
 }
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: 1.5rem;
+}
+.navbar__icon-btn,
+.navbar__lang-btn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.navbar__icon-btn:hover,
+.navbar__lang-btn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-beige);
+  background: var(--color-beige-pale);
+}
 .navbar__burger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 0.5rem;
@@ -59,11 +83,11 @@
 
 .navbar__mobile {
   position: absolute; top: var(--nav-height); left: 0; right: 0;
-  background: rgba(18, 17, 26, 0.97); backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
   padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;
   transform: translateY(-8px); opacity: 0; pointer-events: none;
   transition: transform 0.3s var(--ease-out), opacity 0.3s ease;
-  border-bottom: 1px solid rgba(124,92,191,0.15);
+  border-bottom: 1px solid var(--color-border);
 }
 .navbar__mobile--open { transform: translateY(0); opacity: 1; pointer-events: all; }
 .navbar__mobile-link {
@@ -71,12 +95,82 @@
   padding: 0.6rem 0; border-bottom: 1px solid rgba(124,92,191,0.1);
   transition: color 0.2s;
 }
-.navbar__mobile-link:hover { color: var(--color-beige-light); }
+.navbar__mobile-link:hover { color: var(--color-text-primary); }
 .navbar__mobile-cta {
   margin-top: 0.5rem; background: var(--color-beige); color: white;
   text-align: center; padding: 0.75rem; border-radius: 10px; font-weight: 600;
 }
+
+.navbar__mobile-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.navbar__mobile-btn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navbar__mobile-btn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-beige);
+  background: var(--color-beige-pale);
+}
+
+/* Dark mode for navbar */
+body.dark .navbar {
+  background: rgba(28, 24, 30, 0.75);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+body.dark .navbar__logo-text,
+body.dark .navbar__link,
+body.dark .navbar__cta,
+body.dark .navbar__icon-btn,
+body.dark .navbar__lang-btn {
+  color: var(--color-text-primary);
+}
+
+body.dark .navbar__links .navbar__link::after {
+  background: var(--color-beige-light);
+}
+
+body.dark .navbar__cta {
+  background: var(--color-beige-dark);
+  color: white;
+}
+
+body.dark .navbar__mobile {
+  background: rgba(28, 24, 30, 0.95);
+  border-bottom: 1px solid rgba(124, 92, 191, 0.08);
+}
+
+body.dark .navbar__mobile-link,
+body.dark .navbar__mobile-cta,
+body.dark .navbar__mobile-btn {
+  color: var(--color-text-primary);
+  border-color: rgba(124, 92, 191, 0.15);
+}
+
+body.dark .navbar__mobile-cta {
+  background: var(--color-beige-dark);
+  color: white;
+}
+
+body.dark .navbar__burger span {
+  background: var(--color-text-primary);
+}
+
 @media (max-width: 768px) {
   .navbar__links { display: none; }
   .navbar__burger { display: flex; }
+  .navbar__actions { display: none; }
 }

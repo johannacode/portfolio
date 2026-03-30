@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { navLinks, personalInfo } from "../../data/portfolio";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import "./Navbar.css";
+import { MdDarkMode } from "react-icons/md";
+import { MdSunny } from "react-icons/md";
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -10,7 +12,7 @@ export default function Navbar({ onContactClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
   const isHome = location.pathname === "/";
 
   const activeSection = useActiveSection(["hero", "projets"]);
@@ -46,6 +48,23 @@ export default function Navbar({ onContactClick }) {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+
+  const [isDark, setIsDark] = useState(false);
+
+  const toggleDark = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    document.body.classList.toggle("dark", newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+  };
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") {
+      document.body.classList.add("dark");
+      setIsDark(true);
+    }
+  }, []);
 
   return (
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
@@ -94,6 +113,16 @@ export default function Navbar({ onContactClick }) {
           })}
         </nav>
 
+        <div className="navbar__actions">
+          <button onClick={toggleDark} className="navbar__icon-btn">
+            {isDark ? <span> <MdSunny size={14} /></span> : <span><MdDarkMode size={14} /></span>}
+          </button>
+
+          <button className="navbar__lang-btn">
+            FR
+          </button>
+        </div>
+
         <button
           className={`navbar__burger${menuOpen ? " open" : ""}`}
           onClick={() => setMenuOpen((v) => !v)}
@@ -139,6 +168,15 @@ export default function Navbar({ onContactClick }) {
         >
           Télécharger mon CV
         </a>
+        <div className="navbar__mobile-actions">
+          <button onClick={() => { toggleDark(); setMenuOpen(false); }} className="navbar__mobile-btn">
+            {isDark ? <MdSunny size={16} /> : <MdDarkMode size={16} />}
+          </button>
+
+          <button className="navbar__mobile-btn">
+            FR
+          </button>
+        </div>
       </div>
     </header>
   );

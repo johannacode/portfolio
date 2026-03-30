@@ -1,11 +1,9 @@
-/* ── Section wrapper ─────────────────────────────────────────── */
 .cvpage {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle grid pattern en fond */
 .cvpage::before {
   content: '';
   position: absolute;
@@ -17,7 +15,6 @@
   pointer-events: none;
 }
 
-/* ── Header ──────────────────────────────────────────────────── */
 .cvpage__header {
   text-align: center;
   margin-bottom: 3.5rem;
@@ -81,14 +78,35 @@
 
 .cvpage__col-title--mt { margin-top: 2.5rem; }
 
-/* ── À propos — col 1 ────────────────────────────────────────── */
-
-/* Carte identité */
 .cvpage__card {
   border-radius: 18px;
   padding: 1.5rem;
   text-align: center;
   margin-bottom: 1.5rem;
+}
+
+.cvpage__card.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(124, 92, 191, 0.08); 
+  
+  box-shadow: 
+    0 4px 20px rgba(0,0,0,0.04),
+    0 1px 0 rgba(255,255,255,0.6) inset;
+
+  transition: all 0.25s ease;
+}
+
+body.dark .cvpage__card.glass {
+  background: rgba(28, 24, 30, 0.7);  
+  backdrop-filter: blur(14px);         
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(124, 92, 191, 0.08);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.25),     
+    0 1px 0 rgba(255,255,255,0.05) inset;
 }
 
 .cvpage__avatar {
@@ -166,7 +184,6 @@
 
 .cvpage__info-link:hover { color: var(--color-beige); }
 
-/* Bio */
 .cvpage__bio {
   display: flex;
   flex-direction: column;
@@ -185,7 +202,6 @@
   font-weight: 600;
 }
 
-/* Qualités */
 .cvpage__qualities {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -242,7 +258,6 @@
   line-height: 1.5;
 }
 
-/* Actions */
 .cvpage__actions {
   display: flex;
   gap: 0.6rem;
@@ -286,7 +301,6 @@
   background: var(--color-beige-pale);
 }
 
-/* ── Timeline — col 2 ────────────────────────────────────────── */
 .cvpage__timeline {
   position: relative;
   padding-left: 1.5rem;
@@ -295,7 +309,6 @@
   gap: 0;
 }
 
-/* Ligne verticale */
 .cvpage__timeline::before {
   content: '';
   position: absolute;
@@ -321,7 +334,6 @@
 
 .cvpage__titem:last-child { padding-bottom: 0; }
 
-/* Dot */
 .cvpage__titem-dot {
   position: absolute;
   left: -1.5rem;
@@ -340,7 +352,6 @@
   border-color: #f59e0b;
 }
 
-/* Dot actif = plein + pulse */
 .cvpage__titem--current .cvpage__titem-dot {
   background: var(--color-beige);
 }
@@ -358,7 +369,6 @@
   50%       { opacity: 0;   transform: scale(1.6); }
 }
 
-/* Content */
 .cvpage__titem-period {
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -405,9 +415,6 @@
   border-radius: 99px;
 }
 
-/* ── Compétences — col 3 ─────────────────────────────────────── */
-
-/* Tabs */
 .cvpage__skill-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -523,7 +530,6 @@
   transition: width 1.2s var(--ease-out);
 }
 
-/* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .cvpage__grid {
     grid-template-columns: 260px 1fr 260px;
@@ -541,7 +547,6 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  /* Sur mobile les colonnes ne slidaient pas latéralement */
   .cvpage__col--about,
   .cvpage__col--timeline,
   .cvpage__col--skills {
