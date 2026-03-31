@@ -42,7 +42,6 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero">
-      {/* Orbes de fond */}
       <div className="hero__orb hero__orb--1" aria-hidden="true" />
       <div className="hero__orb hero__orb--2" aria-hidden="true" />
       <div className="hero__grid" aria-hidden="true" />

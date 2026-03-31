@@ -65,6 +65,7 @@
   letter-spacing: 0.04em;
   padding: 0.35rem 0.9rem;
   border-radius: 99px;
+  margin-top: 1rem;
   margin-bottom: 1.75rem;
   animation: fadeUp 0.7s var(--ease-out) 0.1s both;
 }
