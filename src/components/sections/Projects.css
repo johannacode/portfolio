@@ -217,28 +217,28 @@
   border-radius: 12px;
 }
 
-/* ===== RESPONSIVE ===== */
-
-/* Tablette : ~2 cartes visibles */
 @media (min-width: 580px) {
   .pcard { flex: 0 0 calc(56% - 0.75rem); }
 }
 
-/* Desktop moyen : ~3 cartes */
 @media (min-width: 900px) {
   .pcard { flex: 0 0 calc(36% - 1rem); }
   .pcard__visual { height: 200px; }
 }
 
-/* Grand écran : ~4 cartes */
 @media (min-width: 1200px) {
   .pcard { flex: 0 0 calc(28% - 1rem); }
 }
 
-/* Petit mobile */
 @media (max-width: 480px) {
   .projects__toolbar { gap: 0.75rem; }
   .projects__tab { font-size: 0.76rem; padding: 0.38rem 0.8rem; }
   .pcard__visual { height: 150px; }
   .pcard__emoji  { font-size: 2.6rem; }
+}
+
+@media (max-width: 768px) {
+  .carousel__nav {
+    display: none;
+  }
 }
