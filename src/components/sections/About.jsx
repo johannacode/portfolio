@@ -26,6 +26,10 @@ export default function About() {
               Qui se cache derrière le code ?
             </p>
 
+            <p className="cvpage__col-sub">
+              Qui se cache derrière le code ?
+            </p>
+
             <div className="about__bio">
               <p>
                 Je m'appelle <strong>Johanna Angloma</strong>, actuellement en{" "}

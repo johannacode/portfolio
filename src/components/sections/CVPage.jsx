@@ -5,10 +5,10 @@ import "./CVPage.css";
 import { FaDownload, FaFireAlt, FaShieldAlt, FaUsers, FaBrain } from "react-icons/fa";
 
 const QUALITIES = [
-  { icon: <FaFireAlt />,   title: "Déterminée",    desc: "Je ne lâche rien face à un problème complexe." },
-  { icon: <FaShieldAlt />, title: "Cybersécurité",  desc: "Ma passion et future spécialité d'ingénieure." },
-  { icon: <FaUsers />,     title: "Team player",    desc: "J'apprends autant des autres que du code." },
-  { icon: <FaBrain />,     title: "Curieuse",       desc: "Toujours en train d'apprendre quelque chose." },
+  { icon: <FaFireAlt />, title: "Déterminée", desc: "Je ne lâche rien face à un problème complexe." },
+  { icon: <FaShieldAlt />, title: "Cybersécurité", desc: "Ma passion et future spécialité d'ingénieure." },
+  { icon: <FaUsers />, title: "Team player", desc: "J'apprends autant des autres que du code." },
+  { icon: <FaBrain />, title: "Curieuse", desc: "Toujours en train d'apprendre quelque chose." },
 ];
 
 const SKILL_CATS = Object.keys(cvSkills);
@@ -32,17 +32,56 @@ export default function CVPage() {
           <div className={`cvpage__col cvpage__col--about${isVisible ? " revealed" : ""}`}>
             <h3 className="cvpage__col-title">À propos</h3>
 
+            <div className="cvpage__bio">
+              <p>
+                Je m'appelle <strong>Johanna Angloma</strong>, actuellement en{" "}
+                <strong>3ème année à EPITECH</strong> et bientôt en{" "}
+                <strong>Mastère MSc Cybersécurité</strong>. Mon objectif : devenir
+                ingénieure dans un domaine qui m'a toujours fascinée par ses enjeux
+                techniques et humains.
+              </p>
+              <p>
+                J'ai commencé à coder par curiosité, et cette curiosité ne s'est
+                jamais éteinte. Chaque projet du robot Arduino qui m'a valu une
+                3ème place en concours à ce portfolio entièrement repensé en React
+                m'a appris quelque chose de nouveau.
+              </p>
+              <p>
+                Je cherche une <strong>alternance en informatique</strong> pour mettre
+                mes compétences au service d'une équipe, progresser vite, et construire
+                des choses qui comptent.
+              </p>
+            </div>
+
+            <div className="cvpage__actions">
+              <a href={personalInfo.cv} className="cvpage__btn-cv" target="_blank" rel="noopener noreferrer">
+                <FaDownload size={12} />
+                Télécharger mon CV
+              </a>
+              <a href={personalInfo.linkedin} className="cvpage__btn-outline" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <div className={`cvpage__col cvpage__col--profile${isVisible ? " revealed" : ""}`}>
+
             <div className="cvpage__card glass">
-              <div className="cvpage__avatar">JA</div>
-              <p className="cvpage__card-name">{personalInfo.name}</p>
-              <p className="cvpage__card-school">EPITECH · Bientôt MSc Cybersécurité</p>
+              <div className="cvpage__card-header">
+                <div className="cvpage__avatar">JA</div>
+
+                <div className="cvpage__card-text">
+                  <p className="cvpage__card-name">{personalInfo.name}</p>
+                  <p className="cvpage__card-school">EPITECH · Bientôt MSc Cybersécurité</p>
+                </div>
+              </div>
 
               <div className="cvpage__infos">
                 {[
                   { label: "Localisation", value: personalInfo.location },
-                  { label: "Email",        value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-                  { label: "Recherche",    value: "Alternance informatique" },
-                  { label: "Dispo",        value: "Maintenant" },
+                  { label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
+                  { label: "Recherche", value: "Alternance informatique" },
+                  { label: "Dispo", value: "Maintenant" },
                 ].map(({ label, value, href }) => (
                   <div key={label} className="cvpage__info-row">
                     <span className="cvpage__info-label">{label}</span>
@@ -53,21 +92,6 @@ export default function CVPage() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="cvpage__bio">
-              <p>
-                Je m'appelle <strong>Johanna Angloma</strong>, actuellement en{" "}
-                <strong>3ème année à EPITECH</strong> et bientôt en{" "}
-                <strong>Mastère MSc Cybersécurité</strong>. Mon objectif : devenir
-                ingénieure dans un domaine qui m'a toujours fascinée par ses enjeux
-                techniques et humains.
-              </p>
-              <p>
-                Chaque projet — du robot Arduino qui m'a valu une 3ème place en concours
-                à ce portfolio entièrement repensé en React — m'a appris quelque chose
-                de nouveau.
-              </p>
             </div>
 
             <div className="cvpage__qualities">
@@ -86,16 +110,8 @@ export default function CVPage() {
               ))}
             </div>
 
-            <div className="cvpage__actions">
-              <a href={personalInfo.cv} className="cvpage__btn-cv" target="_blank" rel="noopener noreferrer">
-                <FaDownload size={12} />
-                Télécharger mon CV
-              </a>
-              <a href={personalInfo.linkedin} className="cvpage__btn-outline" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-            </div>
           </div>
+
 
           <div className={`cvpage__col cvpage__col--timeline${isVisible ? " revealed" : ""}`}>
             <h3 className="cvpage__col-title">Formation</h3>
@@ -185,8 +201,8 @@ export default function CVPage() {
             <div className="cvpage__langs">
               <h4 className="cvpage__langs-title">Langues</h4>
               {[
-                { lang: "Français",  level: "Langue maternelle", pct: 100 },
-                { lang: "Anglais",   level: "Niveau professionnel", pct: 70 },
+                { lang: "Français", level: "Langue maternelle", pct: 100 },
+                { lang: "Anglais", level: "Niveau professionnel", pct: 70 },
               ].map(({ lang, level, pct }) => (
                 <div key={lang} className="cvpage__lang">
                   <div className="cvpage__lang-header">
