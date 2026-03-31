@@ -49,7 +49,7 @@ export default function Navbar({ onContactClick }) {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   const toggleDark = () => {
     const newTheme = !isDark;
@@ -60,7 +60,11 @@ export default function Navbar({ onContactClick }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
+
+    if (saved === "light") {
+      document.body.classList.remove("dark");
+      setIsDark(false);
+    } else {
       document.body.classList.add("dark");
       setIsDark(true);
     }
