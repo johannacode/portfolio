@@ -16,13 +16,11 @@ export default function ContactModal({ isOpen, onClose }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
 
-  // Bloque le scroll body quand le modal est ouvert
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
-      // Reset form quand on ferme
       setTimeout(() => {
         setForm({ name: "", email: "", message: "" });
         setSent(false);
@@ -31,7 +29,6 @@ export default function ContactModal({ isOpen, onClose }) {
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
-  // Fermer avec Escape
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", onKey);
