@@ -217,6 +217,26 @@
   border-radius: 12px;
 }
 
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+}
+
+.carousel__dot {
+  height: 7px;
+  width: 7px;
+  border-radius: 99px;
+  background: var(--color-surface-2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+
 @media (min-width: 580px) {
   .pcard { flex: 0 0 calc(56% - 0.75rem); }
 }

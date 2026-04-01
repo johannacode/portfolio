@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -10,6 +10,8 @@ import CVPage from "./components/sections/CVPage";
 
 import ContactModal from "./components/ui/ContactModal";
 import "./styles/globals.css";
+
+import { LangProvider } from "./context/LangContext";
 
 import FloatingHead from "./components/ui/FloatingHead";
 import headGif from "./assets/floating-head.gif";
@@ -28,20 +30,23 @@ export default function App() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <Router>
-      <Navbar onContactClick={() => setContactOpen(true)} />
+    <LangProvider>
+      <Router>
+        <Navbar onContactClick={() => setContactOpen(true)} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cv" element={<CVPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cv" element={<CVPage />} />
+        </Routes>
 
-      <Footer onContactClick={() => setContactOpen(true)} />
+        <Footer onContactClick={() => setContactOpen(true)} />
 
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={() => setContactOpen(false)}
-      />
-    </Router>
+        <ContactModal
+          isOpen={contactOpen}
+          onClose={() => setContactOpen(false)}
+        />
+      </Router>
+    </LangProvider>
+
   );
 }

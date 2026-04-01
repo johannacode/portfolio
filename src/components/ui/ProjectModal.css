@@ -42,6 +42,8 @@
 }
 .modal__badge--wip {
   right: 0.9rem;
+  bottom: 0.75rem;
+  top: auto;
   background: rgba(201,151,58,0.15); border: 1px solid rgba(201,151,58,0.3); color: #d4a254;
 }
 .modal__badge--hl {
@@ -78,7 +80,6 @@
   margin-bottom: 1.75rem;
 }
 
-/* Actions */
 .modal__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
 .modal__btn-primary {
@@ -98,7 +99,6 @@
 }
 .modal__btn-close:hover { border-color: rgba(212,165,165,0.5); color: var(--color-violet-light); }
 
-/* Scrollbar */
 .modal::-webkit-scrollbar { width: 4px; }
 .modal::-webkit-scrollbar-track { background: var(--color-surface); }
 .modal::-webkit-scrollbar-thumb { background: rgba(212,165,165,0.3); border-radius: 99px; }
@@ -110,9 +110,43 @@
   border-radius: 12px;
 }
 
+.pcard__no-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-surface-2), var(--color-bg));
+}
+
+.modal__no-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-surface-2), var(--color-bg));
+}
+
 .modal__img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 12px;
+}
+
+body:not(.dark) .modal-overlay {
+  background: rgba(86, 72, 72, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+body:not(.dark) .modal__close {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(184, 112, 112, 0.25);
+  color: #6b4a4a;
+}
+
+body:not(.dark) .modal__close:hover {
+  background: #fff;
+  color: #3d2525;
+}
+
+body:not(.dark) .modal {
+  box-shadow: 0 24px 80px rgba(80, 40, 40, 0.18);
 }

@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --color-bg: #f5f1ed;
-  --color-bg-alt: #F0DDD7;
-  --color-surface: #FFFFFF;
-  --color-surface-2: #FAF4F2;
+  --color-bg: #f7f2ef;
+  --color-bg-alt: #ede4df;
+  --color-surface: #ffffff;
+  --color-surface-2: #f5eeeb;
 
-  --color-beige: #C48A8A;
-  --color-beige-light: #D9A5A5;
-  --color-beige-dark: #A06C6C;
-  --color-beige-pale: rgba(196, 138, 138, 0.10);
-  --color-beige-glow: rgba(196, 138, 138, 0.20);
+  --color-beige: #b87070;         
+  --color-beige-light: #c98a8a;
+  --color-beige-dark: #924f4f;
+  --color-beige-pale: rgba(184, 112, 112, 0.12);
+  --color-beige-glow: rgba(184, 112, 112, 0.25);
 
-  --color-rose: #B97C7C;
-  --color-rose-light: #D4A5A5;
-  --color-rose-pale: rgba(185, 124, 124, 0.10);
+  --color-rose: #a86060;
+  --color-rose-light: #c07878;
+  --color-rose-pale: rgba(168, 96, 96, 0.12);
 
-  --color-text-primary: #2B1E1E;
-  --color-text-secondary: #5C4040;
-  --color-text-muted: #00000099;
-  --color-text-faint: #BFA5A5;
+  --color-text-primary: #1a1010;      
+  --color-text-secondary: #3d2525;
+  --color-text-muted: #6b4a4a;        
+  --color-text-faint: #9e7070;
 
-  --color-border: rgba(196, 138, 138, 0.18);
-  --color-border-strong: rgba(196, 138, 138, 0.35);
-  --color-glass-border: var(--color-beige-pale);
+  --color-border: rgba(184, 112, 112, 0.20);
+  --color-border-strong: rgba(184, 112, 112, 0.40);
+  --color-glass-border: rgba(184, 112, 112, 0.12);
 
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
@@ -215,6 +215,16 @@ img {
 body.dark .glass {
   background: rgba(28, 24, 30, 0.7);
   
+}
+
+body:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 24px rgba(100, 50, 50, 0.07);
+  border: 1px solid rgba(184, 112, 112, 0.15);
+}
+
+body:not(.dark) .section {
+  background: var(--color-bg);
 }
 
 @keyframes float {

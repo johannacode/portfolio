@@ -496,46 +496,61 @@ body.dark .cvpage__card.glass {
 /* Grid */
 .cvpage__skill-grid {
   display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-bottom: 2rem;
 }
 
-.cvpage__skill-item {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 0.7rem;
-  row-gap: 0.2rem;
+.cvpage__skill-badge {
+  display: inline-flex;
   align-items: center;
-  animation: fadeUp 0.4s var(--ease-out) both;
+  gap: 0.45rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 99px;
+  padding: 0.35rem 0.85rem;
+  animation: fadeUp 0.35s var(--ease-out) both;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.cvpage__skill-badge:hover {
+  border-color: var(--color-beige);
+  box-shadow: 0 2px 12px var(--color-beige-glow);
+  transform: translateY(-2px);
 }
 
 .cvpage__skill-icon {
   font-size: 1.1rem;
-  grid-row: 1 / 3;
-  align-self: center;
 }
 
 .cvpage__skill-name {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: var(--color-text-secondary);
-  line-height: 1;
 }
 
-.cvpage__skill-bar {
-  height: 3px;
-  background: var(--color-surface-2);
-  border-radius: 99px;
+
+.cvpage__skill-ticker {
   overflow: hidden;
+  margin-bottom: 1.25rem;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-.cvpage__skill-fill {
-  height: 100%;
-  background: linear-gradient(to right, var(--color-beige-dark), var(--color-beige-light));
-  border-radius: 99px;
-  transition: width 1s var(--ease-out);
+.cvpage__skill-ticker-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scrollLeft 18s linear infinite;
+}
+
+.cvpage__skill-ticker-word {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--color-beige);
+  white-space: nowrap;
+  opacity: 0.7;
 }
 
 .cvpage__langs-title {

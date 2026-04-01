@@ -1,20 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { projects, PROJECT_CATEGORIES } from "../../data/portfolio";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import ProjectModal from "../ui/ProjectModal";
 import "./Projects.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
-const PLACEHOLDER_MAP = {
-  robot: { emoji: "🤖", tech: "Arduino & C++" },
-  cv: { emoji: "📄", tech: "HTML / CSS / JS" },
-  game: { emoji: "🎮", tech: "Python & Pygame" },
-  portfolio: { emoji: "💻", tech: "React" },
-  portfolio1: { emoji: "🌐", tech: "HTML / CSS / JS" },
-};
 
 function ProjectCard({ project, accent, onClick, isDragging }) {
-  const p = PLACEHOLDER_MAP[project.placeholder] || { emoji: "🗂️", tech: project.tags[0] };
 
   return (
     <div
@@ -26,9 +18,8 @@ function ProjectCard({ project, accent, onClick, isDragging }) {
         {project.image ? (
           <img src={project.image} alt={project.title} className="pcard__img" />
         ) : (
-          <span className="pcard__emoji">{p.emoji}</span>
+          <span className="pcard__no-img" />
         )}
-        {/* <span className="pcard__tech">{p.tech}</span> */}
 
         {project.inProgress && (
           <span className="pcard__badge pcard__badge--wip">En cours</span>
@@ -49,7 +40,6 @@ function ProjectCard({ project, accent, onClick, isDragging }) {
           ))}
         </div>
 
-        {/* 🔥 CTA remis */}
         <span className="pcard__cta">
           En savoir plus
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -64,6 +54,19 @@ function ProjectCard({ project, accent, onClick, isDragging }) {
 const ALL_TAB = { id: "all", label: "Tous", accent: "#d4a5a5" };
 
 export default function Projects() {
+  const [current, setCurrent] = useState(0);
+  const onScroll = () => {
+    if (!trackRef.current) return;
+
+    const scrollLeft = trackRef.current.scrollLeft;
+    const cardWidth = trackRef.current.children[0]?.offsetWidth || 1;
+    const gap = 16;
+
+    const index = Math.round(scrollLeft / (cardWidth + gap));
+    setCurrent(index);
+  };
+
+
   const { ref, isVisible } = useScrollReveal();
 
   const [activeTab, setActiveTab] = useState("all");
@@ -172,6 +175,7 @@ export default function Projects() {
             onMouseLeave={onMouseLeave}
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
+            onScroll={onScroll}
           >
             {filtered.map(project => (
               <ProjectCard
@@ -183,6 +187,26 @@ export default function Projects() {
             ))}
           </div>
         </div>
+
+        <div className="carousel__dots">
+          {filtered.map((_, i) => (
+            <button
+              key={i}
+              className={`carousel__dot${i === current ? " carousel__dot--active" : ""}`}
+              style={i === current ? { background: accent, width: "22px" } : {}}
+              onClick={() => {
+                if (!trackRef.current) return;
+                const cardWidth = trackRef.current.children[0]?.offsetWidth || 1;
+                const gap = 16;
+                trackRef.current.scrollTo({
+                  left: i * (cardWidth + gap),
+                  behavior: "smooth"
+                });
+              }}
+            />
+          ))}
+        </div>
+
 
         {filtered.length === 0 && (
           <p className="carousel__empty">

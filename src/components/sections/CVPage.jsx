@@ -13,6 +13,8 @@ const QUALITIES = [
 
 const SKILL_CATS = Object.keys(cvSkills);
 
+const SKILL_WORDS = ["React", "Python", "Cybersécurité", "Linux", "Docker", "JavaScript", "Rust", "Git"];
+
 export default function CVPage() {
   const { ref, isVisible } = useScrollReveal();
   const [activeCat, setActiveCat] = useState(SKILL_CATS[0]);
@@ -111,7 +113,14 @@ export default function CVPage() {
             </div>
 
           </div>
-
+          
+          <div className="cvpage__skill-ticker">
+            <div className="cvpage__skill-ticker-track">
+              {[...SKILL_WORDS, ...SKILL_WORDS].map((word, i) => (
+                <span key={i} className="cvpage__skill-ticker-word">{word}</span>
+              ))}
+            </div>
+          </div>
 
           <div className={`cvpage__col cvpage__col--timeline${isVisible ? " revealed" : ""}`}>
             <h3 className="cvpage__col-title">Formation</h3>
@@ -166,6 +175,7 @@ export default function CVPage() {
           <div className={`cvpage__col cvpage__col--skills${isVisible ? " revealed" : ""}`}>
             <h3 className="cvpage__col-title">Compétences</h3>
 
+
             <div className="cvpage__skill-tabs">
               {SKILL_CATS.map(cat => (
                 <button
@@ -182,18 +192,12 @@ export default function CVPage() {
               {cvSkills[activeCat].map((skill, i) => (
                 <div
                   key={skill.name}
-                  className="cvpage__skill-item"
+                  className="cvpage__skill-badge"
                   style={{ animationDelay: `${i * 40}ms` }}
                 >
                   <i className={`${skill.icon} cvpage__skill-icon`} title={skill.name} />
                   <span className="cvpage__skill-name">{skill.name}</span>
 
-                  <div className="cvpage__skill-bar">
-                    <div
-                      className="cvpage__skill-fill"
-                      style={{ width: isVisible ? `${skill.level}%` : "0%" }}
-                    />
-                  </div>
                 </div>
               ))}
             </div>

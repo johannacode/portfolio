@@ -44,7 +44,6 @@ export const projects = [
     tags: ["React", "CSS", "JavaScript"],
     category: "web",
     inProgress: true,
-    placeholder: "portfolio",
     link: null,
   },
   {
@@ -65,7 +64,6 @@ export const projects = [
     category: "app",
     inProgress: true,
     image: biscordImg,
-    placeholder: "portfolio",
     link: null,
   },
   {
@@ -85,7 +83,6 @@ export const projects = [
       Objectif : créer un jeu complet et fun en Java tout en découvrant de nouveaux outils et pratiques de développement.`,
     tags: ["Java", "IntelliJ", "Tiled", "Game Dev"],
     category: "jeux",
-    placeholder: "game",
     link: null,
   },
   {
@@ -106,7 +103,6 @@ export const projects = [
     tags: ["Arduino", "Python", "C++", "Électronique"],
     category: "IoT",
     highlight: "3ème au concours",
-    placeholder: "robot",
     link: null,
   },
   {
@@ -126,7 +122,6 @@ export const projects = [
       Objectif : créer un portfolio fonctionnel et esthétique, prêt à évoluer avec mes nouvelles compétences et projets.`,
     tags: ["HTML", "CSS", "JavaScript"],
     category: "web",
-    placeholder: "portfolio2",
     image: portfoliov2Img,
     link: "https://johannacode.github.io/myportfolio/",
   },
@@ -147,7 +142,6 @@ export const projects = [
       Objectif : créer un CV en ligne qui reflète mes compétences techniques et mon sens du design, tout en étant un outil pratique pour mes futures candidatures.`,
     tags: ["HTML", "CSS", "JavaScript", "Responsive"],
     category: "web",
-    placeholder: "cv",
     image: digitalresumeImg,
     link: "https://johannacode.github.io/digitalresume/",
   },
@@ -172,7 +166,6 @@ export const projects = [
       Le projet peut être exporté en exécutable Windows/Linux et constitue une base solide pour étendre le jeu avec de nouvelles fonctionnalités ou améliorations visuelles.`,
     tags: ["Python", "Pygame", "Game Dev", "UI", "Input Handling"],
     category: "jeux",
-    placeholder: "game",
     link: null,
   },
   {
@@ -191,7 +184,6 @@ export const projects = [
       Objectif : poser les fondations d’un portfolio évolutif pour présenter mes projets et mon parcours académique.`,
     tags: ["HTML", "CSS", "JavaScript"],
     category: "web",
-    placeholder: "portfolio1",
     image: portfoliov1Img,
     link: "https://johannacode.github.io/version2portfolio/",
   },
@@ -206,17 +198,16 @@ export const projects = [
       Objectif : apprendre à coder, et créer quelque chose à partir de rien`,
     tags: ["HTML", "CSS", "JavaScript"],
     category: "web",
-    placeholder: "portfolio1",
     image: portfolio2018Img,
     link: "https://johannacode.github.io/version1/",
   },
 ];
 
 export const PROJECT_CATEGORIES = [
-  { id: "web", label: "Web", accent: "#d4a5a5" },
-  { id: "app", label: "App", accent: "#c084b0" },
-  { id: "jeux", label: "Jeux", accent: "#b8a0d4" },
-  { id: "IoT", label: "IoT", accent: "#a0a3d4" },
+  { id: "web", label: "Web", accent: "#CA9191" },
+  { id: "app", label: "App", accent: "#BB7272" },
+  { id: "jeux", label: "Jeux", accent: "#AC5353" },
+  { id: "IoT", label: "IoT", accent: "#8D4444" },
 ];
 
 export const cvFormation = [

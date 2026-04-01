@@ -1,17 +1,10 @@
 import React, { useEffect } from "react";
 import "./ProjectModal.css";
+import { IoCloseOutline } from "react-icons/io5";
 
-const PLACEHOLDER_MAP = {
-  robot: { emoji: "🤖", tech: "Arduino & C++" },
-  cv: { emoji: "📄", tech: "HTML / CSS / JS" },
-  game: { emoji: "🎮", tech: "Python & Pygame" },
-  portfolio: { emoji: "💻", tech: "React" },
-  portfolio1: { emoji: "🌐", tech: "HTML / CSS / JS" },
-};
 
 export default function ProjectModal({ project, accent, onClose }) {
   const color = accent || "#d4a5a5";
-  const p = PLACEHOLDER_MAP[project.placeholder] || { emoji: "🗂️", tech: project.tags[0] };
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onClose(); };
@@ -30,15 +23,12 @@ export default function ProjectModal({ project, accent, onClose }) {
           {project.image ? (
             <img src={project.image} alt={project.title} className="modal__img" />
           ) : (
-            <span className="modal__emoji">{p.emoji}</span>
+            <span className="modal__no-img" />
           )}
-          {/* <span className="modal__tech">{p.tech}</span> */}
           {project.inProgress && <span className="modal__badge modal__badge--wip">En cours</span>}
           {project.highlight && <span className="modal__badge modal__badge--hl">{project.highlight}</span>}
           <button className="modal__close" onClick={onClose} aria-label="Fermer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
+            <IoCloseOutline />
           </button>
         </div>
 
@@ -53,7 +43,6 @@ export default function ProjectModal({ project, accent, onClose }) {
             ))}
           </div>
 
-          {/* Actions */}
           <div className="modal__actions">
             {project.link && (
               <a

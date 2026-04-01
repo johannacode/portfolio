@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { navLinks, personalInfo } from "../../data/portfolio";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import "./Navbar.css";
+import { useLang } from "../../context/LangContext";
 import { MdDarkMode } from "react-icons/md";
 import { MdSunny } from "react-icons/md";
 
@@ -10,6 +11,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 export default function Navbar({ onContactClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, toggleLang } = useLang();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -122,8 +124,8 @@ export default function Navbar({ onContactClick }) {
             {isDark ? <span> <MdSunny size={14} /></span> : <span><MdDarkMode size={14} /></span>}
           </button>
 
-          <button className="navbar__lang-btn">
-            FR
+          <button className="navbar__lang-btn" onClick={toggleLang}>
+            {lang === "fr" ? "EN" : "FR"}
           </button>
         </div>
 
@@ -177,8 +179,8 @@ export default function Navbar({ onContactClick }) {
             {isDark ? <MdSunny size={16} /> : <MdDarkMode size={16} />}
           </button>
 
-          <button className="navbar__mobile-btn">
-            FR
+          <button className="navbar__mobile-btn" onClick={() => { toggleLang(); setMenuOpen(false); }}>
+            {lang === "fr" ? "EN" : "FR"}
           </button>
         </div>
       </div>
