@@ -114,13 +114,13 @@ export default function CVPage() {
 
           </div>
           
-          <div className="cvpage__skill-ticker">
+          {/* <div className="cvpage__skill-ticker">
             <div className="cvpage__skill-ticker-track">
               {[...SKILL_WORDS, ...SKILL_WORDS].map((word, i) => (
                 <span key={i} className="cvpage__skill-ticker-word">{word}</span>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div className={`cvpage__col cvpage__col--timeline${isVisible ? " revealed" : ""}`}>
             <h3 className="cvpage__col-title">Formation</h3>

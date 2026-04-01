@@ -236,6 +236,9 @@
   transition: width 0.3s ease, background 0.3s ease;
 }
 
+body:not(.dark) .carousel__dot {
+  background: rgba(80, 40, 40, 0.263);
+}
 
 @media (min-width: 580px) {
   .pcard { flex: 0 0 calc(56% - 0.75rem); }

@@ -52,6 +52,7 @@
   align-items: start;
   grid-template-areas: 
     "about profile"
+    /* "ticker" */
     "timeline skills";
 }
 
@@ -609,6 +610,7 @@ body.dark .cvpage__card.glass {
     grid-template-areas:
       "profile"
       "about"
+      /* "ticker" */
       "timeline"
       "skills";
 }

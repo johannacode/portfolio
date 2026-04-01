@@ -1,12 +1,13 @@
+// context/LangContext.js
 import { createContext, useContext, useState } from "react";
 import { translations } from "../data/translations";
 
-const LangContext = createContext();
+export const LangContext = createContext(null);  // ← export nommé du contexte aussi
 
 export function LangProvider({ children }) {
   const [lang, setLang] = useState("fr");
   const t = translations[lang];
-  const toggleLang = () => setLang(l => l === "fr" ? "en" : "fr");
+  const toggleLang = () => setLang(prev => prev === "fr" ? "en" : "fr");
 
   return (
     <LangContext.Provider value={{ lang, t, toggleLang }}>
@@ -15,4 +16,8 @@ export function LangProvider({ children }) {
   );
 }
 
-export const useLang = () => useContext(LangContext);
+export function useLang() {   // ← function declaration au lieu de arrow function
+  const context = useContext(LangContext);
+  if (!context) throw new Error("useLang doit être utilisé dans LangProvider");
+  return context;
+}

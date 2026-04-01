@@ -51,7 +51,7 @@ export default function Navbar({ onContactClick }) {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   const toggleDark = () => {
     const newTheme = !isDark;
