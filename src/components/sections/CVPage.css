@@ -599,7 +599,7 @@ body.dark .cvpage__card.glass {
 
 @media (max-width: 1100px) {
   .cvpage__grid {
-    grid-template-columns: 260px 1fr 260px;
+    /* grid-template-columns: 260px 1fr 260px; */
     gap: 2rem;
   }
 }
@@ -613,7 +613,14 @@ body.dark .cvpage__card.glass {
       /* "ticker" */
       "timeline"
       "skills";
-}
+  }
+  .cvpage__col--about,
+  .cvpage__col--profile,
+  .cvpage__col--timeline,
+  .cvpage__col--skills {
+    grid-column: 1;
+    width: 100%;
+  }
 }
 
 @media (max-width: 900px) {
@@ -626,11 +633,11 @@ body.dark .cvpage__card.glass {
     grid-template-columns: 1fr 1fr;
   }
 
-  .cvpage__col--about,
+  /* .cvpage__col--about,
   .cvpage__col--timeline,
   .cvpage__col--skills {
     transform: translateY(20px);
-  }
+  } */
 }
 
 @media (max-width: 768px) {

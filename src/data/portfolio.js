@@ -213,17 +213,17 @@ export const PROJECT_CATEGORIES = [
 export const cvFormation = [
   {
     id: 1,
-    period: "2025 → 2028",
+    period: "2026 → 2028",
     title: "MSc Pro Cybersécurité",
     school: "EPITECH | Paris",
     desc: "Formation spécialisée en sécurité des systèmes d'information, incluant pentest, architecture sécurisée et protection des données.",
-    tags: ["Cybersécurité", "Pentest", "Sécurité"],
+    tags: ["Cybersécurité", "Développement", "Sécurité"],
     current: false,
   },
   {
     id: 2,
-    period: "2022 → 2025",
-    title: "Prepa Cybersécurité",
+    period: "2025 → 2026",
+    title: "Prepa Informatique",
     school: "EPITECH | Paris",
     desc: "Formation orientée projets : développement logiciel, systèmes Unix, travail en équipe et conception d'applications complètes.",
     tags: ["Développement", "Unix", "Projets"],
@@ -234,8 +234,8 @@ export const cvFormation = [
     period: "2018 → 2022",
     title: "Licence Sciences pour l’Ingénieur",
     school: "Université d’Évry — Paris-Saclay",
-    desc: "Formation scientifique avec bases en mathématiques, informatique et ingénierie.",
-    tags: ["Maths", "Informatique"],
+    desc: "Formation scientifique avec bases en informatique, électronique et ingénierie.",
+    tags: ["Maths", "Informatique", "Mécanique", "Electronique"],
     current: false,
   },
   {
@@ -283,7 +283,7 @@ export const cvExperiences = [
     title: "Responsable gestion restauration",
     company: "Domino’s Pizza",
     desc: "Encadrement d’équipe, gestion des stocks et organisation des opérations quotidiennes.",
-    tags: ["Management", "Organisation"],
+    tags: ["Management", "Organisation", "Service client"],
     type: "pro",
   },
 ];
@@ -312,7 +312,7 @@ export const cvSkills = {
     { name: "Linux", icon: "devicon-linux-plain" },
     { name: "Docker", icon: "devicon-docker-plain colored" },
     { name: "Jenkins", icon: "devicon-jenkins-line colored" },
-    { name: "Cisco", icon: "devicon-networkx-original" }, // fallback si pas d’icône officielle
+    { name: "Cisco", icon: "devicon-networkx-plain colored" },
     { name: "Arduino", icon: "devicon-arduino-plain colored" },
   ],
   "Bases de données": [

@@ -11,7 +11,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 export default function Navbar({ onContactClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { lang, toggleLang } = useLang();
+  const { lang, t, toggleLang } = useLang();
 
   const navigate = useNavigate();
   const location = useLocation();

@@ -13,7 +13,7 @@ const QUALITIES = [
 
 const SKILL_CATS = Object.keys(cvSkills);
 
-const SKILL_WORDS = ["React", "Python", "Cybersécurité", "Linux", "Docker", "JavaScript", "Rust", "Git"];
+const SKILL_WORDS = ["React", "Python", "Linux", "Docker", "JavaScript", "Rust", "Git", "Jenkins", "NexJS"];
 
 export default function CVPage() {
   const { ref, isVisible } = useScrollReveal();
