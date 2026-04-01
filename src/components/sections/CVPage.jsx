@@ -5,12 +5,7 @@ import "./CVPage.css";
 import { FaDownload, FaFireAlt, FaShieldAlt, FaUsers, FaBrain } from "react-icons/fa";
 import { useLang } from "../../context/LangContext";
 
-const QUALITIES = [
-  { icon: <FaFireAlt />, title: "Déterminée", desc: "Je ne lâche rien face à un problème complexe." },
-  { icon: <FaShieldAlt />, title: "Cybersécurité", desc: "Ma passion et future spécialité d'ingénieure." },
-  { icon: <FaUsers />, title: "Team player", desc: "J'apprends autant des autres que du code." },
-  { icon: <FaBrain />, title: "Curieuse", desc: "Toujours en train d'apprendre quelque chose." },
-];
+
 
 const SKILL_CATS = Object.keys(cvSkills);
 
@@ -20,6 +15,13 @@ export default function CVPage() {
   const { t } = useLang(); 
   const { ref, isVisible } = useScrollReveal();
   const [activeCat, setActiveCat] = useState(SKILL_CATS[0]);
+
+  const QUALITIES = [
+    { icon: <FaFireAlt />, title: t.cv.q1Title, desc: t.cv.q1Desc },
+    { icon: <FaShieldAlt />, title: t.cv.q2Title, desc: t.cv.q2Desc },
+    { icon: <FaUsers />, title: t.cv.q3Title, desc: t.cv.q3Desc },
+    { icon: <FaBrain />, title: t.cv.q4Title, desc: t.cv.q4Desc },
+  ];
 
   return (
     <section className="cvpage section" id="cv" ref={ref}>
@@ -38,22 +40,15 @@ export default function CVPage() {
 
             <div className="cvpage__bio">
               <p>
-                Je m'appelle <strong>Johanna Angloma</strong>, actuellement en{" "}
-                <strong>3ème année à EPITECH</strong> et bientôt en{" "}
-                <strong>Mastère MSc Cybersécurité</strong>. Mon objectif : devenir
-                ingénieure dans un domaine qui m'a toujours fascinée par ses enjeux
-                techniques et humains.
+                {t.cv.bio1Part1} <strong>{t.cv.name}</strong>, {t.cv.bio1Part2}{" "}
+                <strong>{t.cv.year}</strong> {t.cv.bio1Part3}{" "}
+                <strong>{t.cv.level}</strong>. {t.cv.bio1Part4}
               </p>
               <p>
-                J'ai commencé à coder par curiosité, et cette curiosité ne s'est
-                jamais éteinte. Chaque projet du robot Arduino qui m'a valu une
-                3ème place en concours à ce portfolio entièrement repensé en React
-                m'a appris quelque chose de nouveau.
+                {t.cv.bio2}
               </p>
               <p>
-                Je cherche une <strong>alternance en informatique</strong> pour mettre
-                mes compétences au service d'une équipe, progresser vite, et construire
-                des choses qui comptent.
+                {t.cv.bio3Part1} <strong>{t.cv.work}</strong> {t.cv.bio3Part2}
               </p>
             </div>
 
@@ -63,7 +58,7 @@ export default function CVPage() {
                 {t.cv.downloadCV}
               </a>
               <a href={personalInfo.linkedin} className="cvpage__btn-outline" target="_blank" rel="noopener noreferrer">
-                Linkedin
+                LinkedIn
               </a>
             </div>
           </div>
@@ -76,7 +71,7 @@ export default function CVPage() {
 
                 <div className="cvpage__card-text">
                   <p className="cvpage__card-name">{personalInfo.name}</p>
-                  <p className="cvpage__card-school">EPITECH · Bientôt MSc Cybersécurité</p>
+                  <p className="cvpage__card-school">{t.cv.role}</p>
                 </div>
               </div>
 
@@ -199,8 +194,8 @@ export default function CVPage() {
             <div className="cvpage__langs">
               <h4 className="cvpage__langs-title">{t.cv.languages}</h4>
               {[
-                { lang: "Français", level: "Langue maternelle", pct: 100 },
-                { lang: "Anglais", level: "Niveau professionnel", pct: 70 },
+                { lang: t.cv.french, level: t.cv.native, pct: 100 },
+                { lang: t.cv.english, level: t.cv.pro, pct: 70 },
               ].map(({ lang, level, pct }) => (
                 <div key={lang} className="cvpage__lang">
                   <div className="cvpage__lang-header">

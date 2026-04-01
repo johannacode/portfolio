@@ -7,12 +7,7 @@ import "./ContactModal.css";
 
 import { useLang } from "../../context/LangContext";
 
-const CONTACT_LINKS = [
-  { icon: <FaEnvelope />, label: "Email",     value: personalInfo.email,   href: `mailto:${personalInfo.email}` },
-  { icon: <FaLinkedin />, label: "LinkedIn",  value: "johanna-angloma",    href: personalInfo.linkedin },
-  { icon: <FaGithub />,   label: "GitHub",    value: "johannacode",        href: personalInfo.github },
-  { icon: <FaPhoneAlt />, label: "Téléphone", value: personalInfo.phone,   href: `tel:${personalInfo.phone}` },
-];
+
 
 export default function ContactModal({ isOpen, onClose }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -20,6 +15,12 @@ export default function ContactModal({ isOpen, onClose }) {
 
   const { t } = useLang();
 
+  const CONTACT_LINKS = [
+    { icon: <FaEnvelope />, label: "Email",     value: personalInfo.email,   href: `mailto:${personalInfo.email}` },
+    { icon: <FaLinkedin />, label: "LinkedIn",  value: "johanna-angloma",    href: personalInfo.linkedin },
+    { icon: <FaGithub />,   label: "GitHub",    value: "johannacode",        href: personalInfo.github },
+    { icon: <FaPhoneAlt />, label: t.contact.phone, value: personalInfo.phone,   href: `tel:${personalInfo.phone}` },
+  ];
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -108,7 +109,7 @@ export default function ContactModal({ isOpen, onClose }) {
               <span className="contact-modal__success-icon">✓</span>
               <p className="contact-modal__success-title">{t.contact.success}</p>
               <p className="contact-modal__success-sub">
-                Le message est pré-rempli, il ne reste qu'à envoyer.
+                {t.contact.prefilledMessage}
               </p>
               <button
                 className="contact-modal__success-reset"

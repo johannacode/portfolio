@@ -28,7 +28,7 @@ export default function ProjectModal({ project, accent, onClose }) {
           ) : (
             <span className="modal__no-img" />
           )}
-          {project.inProgress && <span className="modal__badge modal__badge--wip">En cours</span>}
+          {project.inProgress && <span className="modal__badge modal__badge--wip">{t.projects.inProgress}</span>}
           {project.highlight && <span className="modal__badge modal__badge--hl">{project.highlight}</span>}
           <button className="modal__close" onClick={onClose} aria-label="Fermer">
             <IoCloseOutline />
