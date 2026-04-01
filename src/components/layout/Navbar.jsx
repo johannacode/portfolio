@@ -72,6 +72,13 @@ export default function Navbar({ onContactClick }) {
     }
   }, []);
 
+  const getLinkLabel = (link) => {
+    if (link.href === "#hero") return t.nav.home;
+    if (link.href === "#projets") return t.nav.projects;
+    if (link.href === "#contact") return t.nav.contact;
+    return link.label;
+  };
+
   return (
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
       <div className="container navbar__inner">
@@ -98,10 +105,10 @@ export default function Navbar({ onContactClick }) {
                   className={`navbar__link${location.pathname === "/cv" ? " navbar__link--active" : ""}`}
                   onClick={() => {
                     setMenuOpen(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    
                   }}
                 >
-                  CV
+                  {t.nav.cv}
                 </Link>
               );
             }
@@ -113,7 +120,7 @@ export default function Navbar({ onContactClick }) {
                 className={`navbar__link${isHome && activeSection === id && !isContact ? " navbar__link--active" : ""}`}
                 onClick={(e) => handleLinkClick(e, link.href)}
               >
-                {link.label}
+                {getLinkLabel(link)}
               </a>
             );
           })}
@@ -150,7 +157,7 @@ export default function Navbar({ onContactClick }) {
                 className="navbar__mobile-link"
                 onClick={() => setMenuOpen(false)}
               >
-                CV
+                {t.nav.cv}
               </Link>
             );
           }
@@ -162,7 +169,7 @@ export default function Navbar({ onContactClick }) {
               className="navbar__mobile-link"
               onClick={(e) => handleLinkClick(e, link.href)}
             >
-              {link.label}
+              {getLinkLabel(link)}
             </a>
           );
         })}
@@ -172,7 +179,7 @@ export default function Navbar({ onContactClick }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Télécharger mon CV
+          {t.nav.downloadCV}
         </a>
         <div className="navbar__mobile-actions">
           <button onClick={() => { toggleDark(); setMenuOpen(false); }} className="navbar__mobile-btn">

@@ -3,6 +3,7 @@ import { personalInfo, cvFormation, cvExperiences, cvSkills } from "../../data/p
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import "./CVPage.css";
 import { FaDownload, FaFireAlt, FaShieldAlt, FaUsers, FaBrain } from "react-icons/fa";
+import { useLang } from "../../context/LangContext";
 
 const QUALITIES = [
   { icon: <FaFireAlt />, title: "Déterminée", desc: "Je ne lâche rien face à un problème complexe." },
@@ -16,6 +17,7 @@ const SKILL_CATS = Object.keys(cvSkills);
 const SKILL_WORDS = ["React", "Python", "Linux", "Docker", "JavaScript", "Rust", "Git", "Jenkins", "NexJS"];
 
 export default function CVPage() {
+  const { t } = useLang(); 
   const { ref, isVisible } = useScrollReveal();
   const [activeCat, setActiveCat] = useState(SKILL_CATS[0]);
 
@@ -24,15 +26,15 @@ export default function CVPage() {
       <div className="container">
 
         <div className={`cvpage__header${isVisible ? " revealed" : ""}`}>
-          <p className="cvpage__label">Curriculum Vitæ</p>
-          <h2 className="section-title">Mon <span className="cvpage__accent">parcours</span></h2>
-          <p className="section-sub">À propos, formation, expériences et compétences.</p>
+          <p className="cvpage__label">{t.cv.label}</p>
+          <h2 className="section-title">{t.cv.title} <span className="cvpage__accent">{t.cv.accent}</span></h2>
+          <p className="section-sub">{t.cv.sub}</p>
         </div>
 
         <div className="cvpage__grid">
 
           <div className={`cvpage__col cvpage__col--about${isVisible ? " revealed" : ""}`}>
-            <h3 className="cvpage__col-title">À propos</h3>
+            <h3 className="cvpage__col-title">{t.cv.about}</h3>
 
             <div className="cvpage__bio">
               <p>
@@ -58,10 +60,10 @@ export default function CVPage() {
             <div className="cvpage__actions">
               <a href={personalInfo.cv} className="cvpage__btn-cv" target="_blank" rel="noopener noreferrer">
                 <FaDownload size={12} />
-                Télécharger mon CV
+                {t.cv.downloadCV}
               </a>
               <a href={personalInfo.linkedin} className="cvpage__btn-outline" target="_blank" rel="noopener noreferrer">
-                LinkedIn
+                Linkedin
               </a>
             </div>
           </div>
@@ -80,10 +82,10 @@ export default function CVPage() {
 
               <div className="cvpage__infos">
                 {[
-                  { label: "Localisation", value: personalInfo.location },
-                  { label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-                  { label: "Recherche", value: "Alternance informatique" },
-                  { label: "Dispo", value: "Maintenant" },
+                  { label: t.cv.location, value: personalInfo.location },
+                  { label: t.cv.email, value: personalInfo.email, href: `mailto:${personalInfo.email}` },
+                  { label: t.cv.searchl, value: t.cv.search },
+                  { label: t.cv.dispo, value: t.cv.available },
                 ].map(({ label, value, href }) => (
                   <div key={label} className="cvpage__info-row">
                     <span className="cvpage__info-label">{label}</span>
@@ -113,17 +115,9 @@ export default function CVPage() {
             </div>
 
           </div>
-          
-          {/* <div className="cvpage__skill-ticker">
-            <div className="cvpage__skill-ticker-track">
-              {[...SKILL_WORDS, ...SKILL_WORDS].map((word, i) => (
-                <span key={i} className="cvpage__skill-ticker-word">{word}</span>
-              ))}
-            </div>
-          </div> */}
 
           <div className={`cvpage__col cvpage__col--timeline${isVisible ? " revealed" : ""}`}>
-            <h3 className="cvpage__col-title">Formation</h3>
+            <h3 className="cvpage__col-title">{t.cv.formation}</h3>
 
             <div className="cvpage__timeline">
               {cvFormation.map((item, i) => (
@@ -148,7 +142,7 @@ export default function CVPage() {
               ))}
             </div>
 
-            <h3 className="cvpage__col-title cvpage__col-title--mt">Expériences & Prix</h3>
+            <h3 className="cvpage__col-title cvpage__col-title--mt">{t.cv.experiences}</h3>
 
             <div className="cvpage__timeline">
               {cvExperiences.map((item, i) => (
@@ -173,7 +167,7 @@ export default function CVPage() {
           </div>
 
           <div className={`cvpage__col cvpage__col--skills${isVisible ? " revealed" : ""}`}>
-            <h3 className="cvpage__col-title">Compétences</h3>
+            <h3 className="cvpage__col-title">{t.cv.skills}</h3>
 
 
             <div className="cvpage__skill-tabs">
@@ -203,7 +197,7 @@ export default function CVPage() {
             </div>
 
             <div className="cvpage__langs">
-              <h4 className="cvpage__langs-title">Langues</h4>
+              <h4 className="cvpage__langs-title">{t.cv.languages}</h4>
               {[
                 { lang: "Français", level: "Langue maternelle", pct: 100 },
                 { lang: "Anglais", level: "Niveau professionnel", pct: 70 },
@@ -225,6 +219,7 @@ export default function CVPage() {
           </div>
 
         </div>
+        
       </div>
     </section>
   );

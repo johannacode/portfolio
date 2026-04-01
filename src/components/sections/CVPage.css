@@ -52,7 +52,6 @@
   align-items: start;
   grid-template-areas: 
     "about profile"
-    /* "ticker" */
     "timeline skills";
 }
 
@@ -116,15 +115,8 @@
 }
 
 .cvpage__card.glass {
-  /* background: rgba(255, 255, 255, 0.7); */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-
-  /* border: 1px solid rgba(124, 92, 191, 0.08);  */
-  
-  /* box-shadow: 
-    0 4px 20px rgba(0,0,0,0.04),
-    0 1px 0 rgba(255,255,255,0.6) inset; */
 
   transition: all 0.25s ease;
 
@@ -494,7 +486,6 @@ body.dark .cvpage__card.glass {
   color: var(--color-beige-light);
 }
 
-/* Grid */
 .cvpage__skill-grid {
   display: flex;
   flex-wrap: wrap;
@@ -530,29 +521,6 @@ body.dark .cvpage__card.glass {
   color: var(--color-text-secondary);
 }
 
-
-.cvpage__skill-ticker {
-  overflow: hidden;
-  margin-bottom: 1.25rem;
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
-
-.cvpage__skill-ticker-track {
-  display: flex;
-  gap: 1.5rem;
-  width: max-content;
-  animation: scrollLeft 18s linear infinite;
-}
-
-.cvpage__skill-ticker-word {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--color-beige);
-  white-space: nowrap;
-  opacity: 0.7;
-}
 
 .cvpage__langs-title {
   font-family: var(--font-mono);
@@ -610,7 +578,6 @@ body.dark .cvpage__card.glass {
     grid-template-areas:
       "profile"
       "about"
-      /* "ticker" */
       "timeline"
       "skills";
   }

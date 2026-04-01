@@ -37,6 +37,8 @@ export const translations = {
       available: "Maintenant",
       location: "Localisation",
       email: "Email",
+      searchl: "Recherche",
+      dispo: "Dispo",
     },
   },
   en: {
@@ -77,6 +79,8 @@ export const translations = {
       available: "Now",
       location: "Location",
       email: "Email",
+      searchl: "Search",
+      dispo: "Available",
     },
   },
 };

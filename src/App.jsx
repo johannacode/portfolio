@@ -11,6 +11,8 @@ import CVPage from "./components/sections/CVPage";
 import ContactModal from "./components/ui/ContactModal";
 import "./styles/globals.css";
 
+import ScrollToTop from "./components/ui/ScrollToTop";
+
 import { LangProvider } from "./context/LangContext";
 
 import FloatingHead from "./components/ui/FloatingHead";
@@ -32,6 +34,7 @@ export default function App() {
   return (
     <LangProvider>
       <Router>
+        <ScrollToTop /> 
         <Navbar onContactClick={() => setContactOpen(true)} />
 
         <Routes>
