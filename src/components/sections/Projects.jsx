@@ -4,9 +4,11 @@ import { useScrollReveal } from "../../hooks/useScrollReveal";
 import ProjectModal from "../ui/ProjectModal";
 import "./Projects.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-
+import { useLang } from "../../context/LangContext";
 
 function ProjectCard({ project, accent, onClick, isDragging }) {
+  
+  const { t } = useLang();
 
   return (
     <div
@@ -22,7 +24,7 @@ function ProjectCard({ project, accent, onClick, isDragging }) {
         )}
 
         {project.inProgress && (
-          <span className="pcard__badge pcard__badge--wip">En cours</span>
+          <span className="pcard__badge pcard__badge--wip">{t.projects.inProgress}</span>
         )}
         {project.highlight && (
           <span className="pcard__badge pcard__badge--hl">{project.highlight}</span>
@@ -41,7 +43,7 @@ function ProjectCard({ project, accent, onClick, isDragging }) {
         </div>
 
         <span className="pcard__cta">
-          En savoir plus
+          {t.projects.learnMore}
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M7 17L17 7M17 7H7M17 7v10" />
           </svg>
@@ -51,10 +53,16 @@ function ProjectCard({ project, accent, onClick, isDragging }) {
   );
 }
 
-const ALL_TAB = { id: "all", label: "Tous", accent: "#d4a5a5" };
+// const ALL_TAB = { id: "all", label: "Tous", accent: "#d4a5a5" };
 
 export default function Projects() {
   const [current, setCurrent] = useState(0);
+  const { t } = useLang();
+
+  const tabs = [
+    { id: "all", label: t.projects.all, accent: "#d4a5a5" },
+    ...PROJECT_CATEGORIES
+  ];
   const onScroll = () => {
     if (!trackRef.current) return;
 
@@ -72,7 +80,7 @@ export default function Projects() {
   const [activeTab, setActiveTab] = useState("all");
   const [selected, setSelected] = useState(null);
 
-  const tabs = [ALL_TAB, ...PROJECT_CATEGORIES];
+  // const tabs = [ALL_TAB, ...PROJECT_CATEGORIES];
   const filtered = activeTab === "all"
     ? projects
     : projects.filter(p => p.category === activeTab);
@@ -135,9 +143,9 @@ export default function Projects() {
       <div className="container">
 
         <div ref={ref} className={`projects__head${isVisible ? " revealed" : ""}`}>
-          <h2 className="section-title">Mes Projets</h2>
+          <h2 className="section-title">{t.projects.title}</h2>
           <p className="section-sub">
-            Découvrez mes projets perso et mes réalisations académiques.
+            {t.projects.sub}
           </p>
         </div>
 
@@ -210,7 +218,7 @@ export default function Projects() {
 
         {filtered.length === 0 && (
           <p className="carousel__empty">
-            Aucun projet pour cette catégorie.
+            {t.projects.empty}
           </p>
         )}
       </div>

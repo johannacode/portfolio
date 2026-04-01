@@ -21,6 +21,7 @@ export const translations = {
       seeProject: "Voir le projet",
       close: "Fermer",
       empty: "Aucun projet pour cette catégorie.",
+      inProgress: "En cours",
     },
     cv: {
       label: "Curriculum Vitæ",
@@ -63,6 +64,7 @@ export const translations = {
       seeProject: "View project",
       close: "Close",
       empty: "No projects in this category.",
+      inProgress: "In progress",
     },
     cv: {
       label: "Curriculum Vitæ",

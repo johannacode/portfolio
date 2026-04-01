@@ -5,11 +5,15 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdSchool, MdOutlineFileDownload } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
 
+import { useLang } from "../../context/LangContext";
+
 function useTypewriter(words, speed = 80, pause = 1800) {
   const [display, setDisplay] = useState("");
   const [wordIdx, setWordIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
+
+  const { lang, t, toggleLang } = useLang();
 
   useEffect(() => {
     const current = words[wordIdx];
@@ -36,7 +40,7 @@ function useTypewriter(words, speed = 80, pause = 1800) {
 
 export default function Hero() {
   const typed = useTypewriter(personalInfo.roles, 75, 2000);
-
+  const { lang, t, toggleLang } = useLang();
   const scrollTo = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -63,7 +67,7 @@ export default function Hero() {
         </div>
 
         <p className="hero__tagline">
-          Étudiante EPITECH — <strong>{personalInfo.tagline}</strong>
+          {t.hero.tagline} <strong>{personalInfo.tagline}</strong>
         </p>
 
         <p className="hero__bio">{personalInfo.bio}</p>
@@ -76,18 +80,18 @@ export default function Hero() {
 
           <span className="hero__pill">
             <MdSchool size={13} />
-            EPITECH · 3ème année (Prépa)
+            {t.hero.school}
           </span>
         </div>
 
         <div className="hero__actions">
           <button className="hero__btn-primary" onClick={() => scrollTo("projets")}>
-            Voir mes projets
+            {t.hero.seeProjects}
             <FaArrowRight size={12}/>
           </button>
           <a href={personalInfo.cv} className="hero__btn-outline" target="_blank" rel="noopener noreferrer">
             <MdOutlineFileDownload size={15}/>
-            Mon CV
+            {t.hero.myCV}
           </a>
           <a href={personalInfo.github} className="hero__btn-ghost" target="_blank" rel="noopener noreferrer">
             GitHub
