@@ -5,6 +5,8 @@ import { FiArrowUpRight, FiX } from "react-icons/fi";
 import { LuSend } from "react-icons/lu";
 import "./ContactModal.css";
 
+import { useLang } from "../../context/LangContext";
+
 const CONTACT_LINKS = [
   { icon: <FaEnvelope />, label: "Email",     value: personalInfo.email,   href: `mailto:${personalInfo.email}` },
   { icon: <FaLinkedin />, label: "LinkedIn",  value: "johanna-angloma",    href: personalInfo.linkedin },
@@ -15,6 +17,8 @@ const CONTACT_LINKS = [
 export default function ContactModal({ isOpen, onClose }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+
+  const { t } = useLang();
 
   useEffect(() => {
     if (isOpen) {
@@ -64,9 +68,9 @@ export default function ContactModal({ isOpen, onClose }) {
       >
         <div className="contact-modal__header">
           <div>
-            <h2 className="contact-modal__title">Contacte-moi</h2>
+            <h2 className="contact-modal__title">{t.contact.title}</h2>
             <p className="contact-modal__sub">
-              Un projet, une opportunité, ou juste un bonjour, je lis tout.
+              {t.contact.subtitle}
             </p>
           </div>
           <button className="contact-modal__close" onClick={onClose} aria-label="Fermer">
@@ -96,13 +100,13 @@ export default function ContactModal({ isOpen, onClose }) {
           </div>
 
           <div className="contact-modal__divider">
-            <span>ou envoyer moi un message</span>
+            <span>{t.contact.oemum}</span>
           </div>
 
           {sent ? (
             <div className="contact-modal__success">
               <span className="contact-modal__success-icon">✓</span>
-              <p className="contact-modal__success-title">Client mail ouvert !</p>
+              <p className="contact-modal__success-title">{t.contact.success}</p>
               <p className="contact-modal__success-sub">
                 Le message est pré-rempli, il ne reste qu'à envoyer.
               </p>
@@ -113,14 +117,14 @@ export default function ContactModal({ isOpen, onClose }) {
                   setForm({ name: "", email: "", message: "" });
                 }}
               >
-                Nouveau message
+                {t.contact.nm}
               </button>
             </div>
           ) : (
             <form className="contact-modal__form" onSubmit={handleSubmit} noValidate>
               <div className="contact-modal__row">
                 <div className="contact-modal__field">
-                  <label htmlFor="cm-name">Votre nom</label>
+                  <label htmlFor="cm-name">{t.contact.name}</label>
                   <input
                     id="cm-name"
                     name="name"
@@ -132,7 +136,7 @@ export default function ContactModal({ isOpen, onClose }) {
                   />
                 </div>
                 <div className="contact-modal__field">
-                  <label htmlFor="cm-email">Votre email</label>
+                  <label htmlFor="cm-email">{t.contact.email}</label>
                   <input
                     id="cm-email"
                     name="email"
@@ -149,7 +153,7 @@ export default function ContactModal({ isOpen, onClose }) {
                 <textarea
                   id="cm-message"
                   name="message"
-                  placeholder="Bonjour Johanna, j'ai une opportunité qui pourrait t'intéresser..."
+                  placeholder={t.contact.placeordermessage}
                   rows={7}
                   value={form.message}
                   onChange={handleChange}
@@ -157,14 +161,14 @@ export default function ContactModal({ isOpen, onClose }) {
                 />
               </div>
               <button type="submit" className="contact-modal__submit">
-                Envoyer <LuSend size={14} />
+                {t.contact.send} <LuSend size={14} />
               </button>
             </form>
           )}
 
           <div className="contact-modal__avail">
             <span className="contact-modal__avail-dot" />
-            Disponible pour une alternance dès maintenant
+            {t.contact.available}
           </div>
         </div>
       </div>

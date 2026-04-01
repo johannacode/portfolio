@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import "./ProjectModal.css";
 import { IoCloseOutline } from "react-icons/io5";
+import { useLang } from "../../context/LangContext";
 
 
 export default function ProjectModal({ project, accent, onClose }) {
   const color = accent || "#d4a5a5";
+
+  const { t } = useLang();
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onClose(); };
@@ -52,13 +55,13 @@ export default function ProjectModal({ project, accent, onClose }) {
                 className="modal__btn-primary"
                 style={{ background: color }}
               >
-                Voir le projet
+                {t.projects.seeProject}
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </a>
             )}
-            <button className="modal__btn-close" onClick={onClose}>Fermer</button>
+            <button className="modal__btn-close" onClick={onClose}>{t.projects.close}</button>
           </div>
         </div>
       </div>
