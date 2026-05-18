@@ -8,6 +8,7 @@ import PortfolioActualImg from "../assets/portfolio.png";
 import SmileyQuestImg from "../assets/SmileyQuest.png";
 import PenduImg from "../assets/pendu.png";
 import RobotImg from "../assets/robot.png";
+import CinescopeImg from "../assets/cinescope.png";
 
 export const personalInfo = {
   name: "Johanna Angloma",
@@ -31,6 +32,48 @@ export const personalInfo = {
 };
 
 export const projects = [
+  {
+    id: 11,
+    title: "CineScope",
+    subtitle: "Test technique fullstack · Yourban",
+    description:
+      "Application web fullstack permettant d'explorer, filtrer et analyser des films issus d'un dataset de 200 films (2022-2024).",
+    longDescription: `CineScope est une application fullstack développée dans le cadre d'un test technique pour l'entreprise Yourban.
+
+  Elle permet d'explorer un catalogue de films et d'analyser leurs performances via une interface moderne et fluide.
+
+  Fonctionnalités principales :
+  - Affichage des films (titre, genre, recettes, date de sortie, note presse)
+  - Filtrage par genre
+  - Tri par recettes ou date de sortie
+  - Recherche textuelle de films
+  - Pagination pour améliorer la lisibilité
+  - Dashboard statistique avec total de films et recettes cumulées dynamiques
+  - Page détail d’un film avec toutes ses informations
+  - CRUD complet via API Express (création, modification, suppression persistante dans un fichier JSON)
+
+  Bonus réalisés :
+  - Système de recherche avancée
+  - Pagination côté front pour améliorer UX
+  - Architecture fullstack propre (React + TypeScript + Express)
+  - Persistance des données via fichier JSON
+
+  Le projet a été conçu avec une logique de séparation frontend/backend et une attention particulière portée à l’expérience utilisateur et à la performance.`,
+
+    tags: [
+      "React",
+      "TypeScript",
+      "Express",
+      "Node.js",
+      "API REST",
+      "Fullstack",
+      "Vite",
+      "JSON"
+    ],
+    category: "web",
+    image: CinescopeImg, 
+    link: "https://ycinescope.onrender.com/"
+  },
   {
     id: 10,
     title: "CheckYourNetwork",
@@ -72,7 +115,6 @@ export const projects = [
       Objectif : démontrer mes compétences React et front-end tout en créant un portfolio moderne et attractif.`,
     tags: ["React", "CSS", "JavaScript"],
     category: "web",
-    inProgress: true,
     image: PortfolioActualImg,
     link: null,
   },
@@ -92,7 +134,7 @@ export const projects = [
       Objectif : concevoir une application web et desktop performante, montrant mes compétences en React, gestion d’état, UI et UX design.`,
     tags: ["NextJS", "Rust", "TypeScript", "App Dev", "TailWind CSS", "MongoDB", "Postgres", "Web socket"],
     category: "app",
-    inProgress: true,
+    inProgress: false,
     image: biscordImg,
     link: null,
   },
